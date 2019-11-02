@@ -29,6 +29,7 @@ header("Content-type: text/xml");
 // Iterate through the rows, adding XML nodes for each
 while ($row = @mysqli_fetch_assoc($result)) {
     //Adding XML document node
+
     $node = $dom -> createElement("marker"); //this is the one that determines the marker on the map
     $newnode = $parnode ->appendChild($node);
     $newnode->setAttribute('id', $row['registration_number']);
@@ -51,13 +52,14 @@ while ($row = @mysqli_fetch_assoc($result)) {
     */
 }
 
+//creating the file to write to and opening it
+//$external_xml = fopen('/db_stuff/testxml.xml', 'w');
 
-$info_to_write_to = $dom->saveXML();
-$file_to_edit = "/db_stuff/db_dump.xml";
-
-fwrite($file_to_edit, $info_to_write_to);
+//fwrite($external_xml, (string)$result_array);
 
 
+
+//outputting the xml file contents
 echo $dom->saveXML();
 
 
@@ -66,9 +68,7 @@ echo $dom->saveXML();
 
 
 
-
-
-
+mysqli_close($db_conn);
 
 
 ?>

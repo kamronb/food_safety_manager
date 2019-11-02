@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+@media screen and (min-width: px) and (max-width: 1600px) {
+
+	#right_div {
+		width: 15%;
+	}
+
+	/*#right_div .left_link_nearest {
+
+	}
+	
+	#right_div .right_link_expired {
+
+	}
+	
+	#meta_div {
+
+	}
+	
+	#search_box {
+
+	}
+	
+	#db_results {}
+	*/
+
+}

@@ -95,8 +95,61 @@ body {
 	margin: 5% 0 0 0;
 	background: #FFFFFF;
 	height: 56.5%;
+	overflow-y: scroll;
+}
+
+#db_results .est_name {
+	width: 95%;
+	padding: 10px;
+	border: 1px solid #000000;
+	margin: 10px 0;
+}
+
+#db_results .view_more a {
+	float: right;
+	padding: 0px;
+	text-decoration: none;
+	color: #FF8C00;
+}
+
+#db_results .view_more a:hover {
+	color: #3C97D3;
 }
 
 #db_results h1 {
 	color: #FF8C00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Other Stuff*/
+.clearthis {
+	margin : 0px;
+	height : 1px;
+	clear : both;
+	float : none;
+	font-size : 1px;
+	line-height : 0px;
+	overflow : hidden;
 }

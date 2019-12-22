@@ -18,9 +18,5 @@ $SoonExpired = "SELECT * FROM `test_establishments` WHERE expiry_date BETWEEN CU
 $NotSoonExpired = "SELECT * FROM `test_establishments`WHERE expiry_date > CURDATE()+ INTERVAL 30 DAY LIMIT 20 ";
 
 
-// Why did I have these here?
-$lat = 'lat: 18.346508';
-$lng = 'lng: -77.531076';
-
 
 ?>

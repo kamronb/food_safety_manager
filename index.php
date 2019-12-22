@@ -1,25 +1,34 @@
 <!DOCTYPE html >
 <?php
 require("db_stuff/phpsqlajax_dbinfo.php");
-
-
 $today_date = date("Y-m-d"); // Outputs formatted date
-$soon_expired = strtotime($today_date)+30;
 
-// Opening connection to the MySQL Server
-$db_conn = mysqli_connect($db_host, $db_user, $db_pass);
-if (!$db_conn) {
-    die('Not Connected :' . mysqli_error());
-};
+//converting date to integer for the comparison to put in the colour-changing icons
+$today_to_integer = strtotime($today_date); 
+$soon_expire = strtotime($today_date) + 30;
 
-// Setting the Database we using
-$db_select = mysqli_select_db($db_conn, $db_name);
-if (!$db_select) {
-    die('Could not select DB');
+
+//connect to the database
+$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+//check if the connection was successful
+if ($db_conn->connect_error) {
+    die("Connection failed: " . $db_conn->connect_error);
 }
 
-$result = $db_conn->query($db_query);
+//stuff for the good establishments
+$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
+$result = $db_conn->query($query_good);
+
+//stuff for the expired establishments
+$query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW() ";
+$result2 = $db_conn->query($query_expired);
+
+//stuff for the soon expired establishments
+$query_expired_in_30_days = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY ";
+$result3 = $db_conn->query($query_expired_in_30_days);
 ?>
+
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,6 +45,109 @@ $result = $db_conn->query($db_query);
 </head>
 <body>
 <div id="map"></div>
+
+<script id="map-stuff">
+function initMap() {    
+
+    var centerMap = { //where to centre map must change dependent on assigned area
+        lat: 18.346508, lng: -77.531076 //will get from the database
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10.5,
+        center: centerMap //hope to change dependednt on assigned area
+    });
+
+    // These are the objects that determine the icons for the different establishments
+    var image_good =  {
+        url: 'images/icons/good.png', // url
+        scaledSize: new google.maps.Size(50, 50), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+    var image_expired_soon =  {
+        url: 'images/icons/soon.png', // url
+        scaledSize: new google.maps.Size(50, 50), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+    var image_expired =  {
+        url: 'images/icons/expired.png', // url
+        scaledSize: new google.maps.Size(50, 50), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+
+<?php
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+            //put the code to do the javascript markers here
+            echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+            echo "animation: google.maps.Animation.DROP,";
+            echo "map: map,";
+            echo "label: " . $row["registration_number"] . ",";
+            echo "title: '". $row["establishment_name"] . "',";
+            echo "icon: image_good";
+
+            echo "});";
+        }    
+    }
+
+    //displaying those that are expired
+    if (mysqli_num_rows($result2) > 0) {
+        while($row = mysqli_fetch_array($result2)) {
+            //put the code to do the javascript markers here
+            echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+            echo "animation: google.maps.Animation.DROP,";
+            echo "map: map,";
+            echo "label: " . $row["registration_number"] . ",";
+            echo "title: '". $row["establishment_name"] . "',";
+            echo "icon: image_expired";
+
+            echo "});";
+        }    
+    }
+
+    //displaying those that are soon to be expired
+    if (mysqli_num_rows($result3) > 0) {
+        while($row = mysqli_fetch_array($result3)) {
+            //put the code to do the javascript markers here
+            echo "var expiredSoonEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+            echo "animation: google.maps.Animation.DROP,";
+            echo "map: map,";
+            echo "label: " . $row["registration_number"] . ",";
+            echo "title: '". $row["establishment_name"] . "',";
+            echo "icon: image_expired_soon";
+
+            echo "});";
+        }    
+    }
+
+
+
+?>       
+
+}
+
+
+
+
+
+    //   http://localhost/food_safety_manager/db_stuff/db_info_guide.json
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3mvBn2TXTjOkWonZ6jaGxu6vFXoz-Xc&callback=initMap">
+</script>
+
+
+
 <div id="right_div">
     <div class="left_link_nearest">
         <h4>Show Nearest</h4>
@@ -54,163 +166,46 @@ $result = $db_conn->query($db_query);
 
     <div id="db_results">
         <h1>RESULTS</h1>
-        <?php
-
-        /*echo "<br> Today Date: " . strtotime($today_date) . "<br>Today Date + 30: " . $soon_expired . "<br><br>";
-
-            $div_number = "div" . 1;
-            if ($result -> num_rows > 0) {
-                while ($row = $result-> fetch_assoc()) {
-                    $todayFromString = strtotime($today_date);
-                    $ExpiryFromString = strtotime($row['expiry_date']);
-
-                    echo '<div id=' . $div_number++ . '>' . $row['registration_number'] . ". " .$row['establishment_name'] . " " . $row['expiry_date'] . " ";
-                    echo "<br>" . $ExpiryFromString . " ";
-                    echo "<strong>Today From String: " . $todayFromString . "</strong><br><br>";
-
-
-                };
-            };
-            */
-       ?>
-    </div>
-</div>
+        <div id="results-to-show">
 
 
 
-<script>
-    // maybe I could include this script with a php include, then add the points from php to
-    //output JS with a while loop for each point that shows up?
-
-    function initMap() {
-
-/*
-########## Putting in a Few Establishments for Show ############
-*/
- <?php
-
-    /*if ($result -> num_rows > 0) {
-        while ($row = $result-> fetch_assoc()) {
-            $EstVarName = $row['operator_first_name'] . $EstVarName = $row['operator_last_name'];
-            $EstLat = $row['estblishment_location_lat'];
-            $EstLng = $row['estblishment_location_lng'];
-
-            echo "var" . $EstVarName . "= { lat: " . $EstVarLat . " , " . $EstVarLng . "};";
-        }
-    };
-*/
-?>
-
-              var good_est = {
-                   lat: 18.436991,
-                   lng: -77.709167
-               };
-
-               var soon_expired_est = {
-                   lat: 18.493763,
-                   lng: -77.659302
-               };
-
-               var bad_est = {
-                   lat: 18.440432,
-                   lng: -77.714172
-               };
-         /*
-         ###### END ######
-         */
-
-
-        var trelawny = {
-            lat: 18.346508, lng: -77.531076
-        };
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12.5,
-            center: trelawny
-        });
-
-        var image_good =  {
-            url: 'images/icons/good.png', // url
-            scaledSize: new google.maps.Size(50, 50), // scaled size
-            origin: new google.maps.Point(0,0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
-        };
-
-        var image_expired_soon =  {
-            url: 'images/icons/soon.png', // url
-            scaledSize: new google.maps.Size(50, 50), // scaled size
-            origin: new google.maps.Point(0,0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
-        };
-
-        var image_expired =  {
-            url: 'images/icons/expired.png', // url
-            scaledSize: new google.maps.Size(50, 50), // scaled size
-            origin: new google.maps.Point(0,0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
-        };
-
-
-        // putting down a test marker
-        <?php
-            /*$VarNumber = "marker" . 1; // to use to make the markers
-            $EstName = $row['establishment_name'];
-            if ($result -> num_rows > 0) {
-                while ($row = $result-> fetch_assoc()) {
-                    $EstVarName = $row['operator_first_name'] . $EstVarName = $row['operator_last_name'];
-                    $EstLat = $row['establishment_location_lat'];
-                    $EstLng = $row['establishment_location_lon'];
-
-                    echo "var " . $VarNumber++ . " = new google.maps.Marker ({ position: " . $EstVarName . ", animation: google.maps.Animation.DROP, map: map, label: " .
-                    '"' . $EstName .'", icon: image_good }); '; //progrmatically determine icon according to date
+            <?php
+                /*if (mysqli_num_rows($result2) > 0) {
+                    while($row = mysqli_fetch_array($result2)) {
+                        echo '<div class="est_name">'; // use php to add a coloured background to those expired establishments
+                        echo "<h3>" . $row["establishment_name"] . "</h3>";
+                        echo "<p><strong>Operator: </strong>" . $row["operator_first_name"] . " " . $row["operator_last_name"] . "</p>";
+                        echo "<p><strong>Telephone: </strong>" . $row["telephone_main"] ."</p>";
+                        echo "<p><strong>Category: </strong>" . $row["establishment_category"] . "</p>";
+                        echo "<p><strong>Expiry Date: </strong>" . $row["expiry_date"] . "</p>";
+                        echo '<p class="view_more"><a href="#">view more&gt;&gt;</a></p>';
+                        echo '<div class="clearthis"></div>';
+                        echo "</div>";
+                    }
                 }
-            }; */
-        ?>
+
+                $a = 15;
+                $b = 10;
+                
+                if ($a < $b) {
+                    echo "less <br>";
+                }
+                elseif (($a > $b) && ($a < $b+10)) {
+                    echo "between <br>";
+                }
+                else {
+                    echo "greater <br>";
+                }
+
+                echo $today_date . "<br>" . $today_to_integer . "<br>" . $soon_expire;
+                */
+
+            ?>
 
 
-
-        var marker = new google.maps.Marker({
-            position: soon_expired_est,
-            animation: google.maps.Animation.DROP,
-            map: map,
-            label: "F",
-            title: 'Hello World!',
-            icon: image_good
-        });
-
-
-        var marker2 = new google.maps.Marker({
-            position: good_est,
-            animation: google.maps.Animation.DROP,
-            map: map,
-            label: "F",
-            title: 'Hello World!',
-            icon: image_expired_soon
-        });
-
-        var marker3 = new google.maps.Marker({
-            position: bad_est,
-            animation: google.maps.Animation.DROP,
-            map: map,
-            label: "F",
-            title: "Hello World! Next Line",
-            icon: image_expired
-        });
-
-
-
-}
-
-  //   http://localhost/food_safety_manager/db_stuff/db_info_guide.json
-</script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3mvBn2TXTjOkWonZ6jaGxu6vFXoz-Xc&callback=initMap">
-</script>
-
-<!--
-    this is where I am going to test the display of the stuff in JSON
--->
+            
+</div>
 <?php
 //close the MySQL Session because we are done with it
 mysqli_close($db_conn);

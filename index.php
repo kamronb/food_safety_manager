@@ -1,12 +1,14 @@
 <!DOCTYPE html >
 <?php
 require("db_stuff/phpsqlajax_dbinfo.php");
-$today_date = date("Y-m-d"); // Outputs formatted date
 
 //converting date to integer for the comparison to put in the colour-changing icons
+
+/*
+$today_date = date("Y-m-d"); // Outputs formatted date
 $today_to_integer = strtotime($today_date); 
 $soon_expire = strtotime($today_date) + 30;
-
+*/
 
 //connect to the database
 $db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
@@ -16,17 +18,21 @@ if ($db_conn->connect_error) {
     die("Connection failed: " . $db_conn->connect_error);
 }
 
+//general query to display all
+$query = "SELECT * FROM `test_establishments`";
+$result = $db_conn->query($query);
+
 //stuff for the good establishments
 $query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
-$result = $db_conn->query($query_good);
+$result2 = $db_conn->query($query_good);
 
 //stuff for the expired establishments
 $query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW() ";
-$result2 = $db_conn->query($query_expired);
+$result3 = $db_conn->query($query_expired);
 
 //stuff for the soon expired establishments
 $query_expired_in_30_days = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY ";
-$result3 = $db_conn->query($query_expired_in_30_days);
+$result4 = $db_conn->query($query_expired_in_30_days);
 ?>
 
 <head>
@@ -48,9 +54,8 @@ $result3 = $db_conn->query($query_expired_in_30_days);
 
 <script id="map-stuff">
 function initMap() {    
-
-    var centerMap = { //where to centre map must change dependent on assigned area
-        lat: 18.346508, lng: -77.531076 //will get from the database
+    var centerMap = { //where to centre map must change dependent on assigned area of officer
+        lat: 18.205253, lng: -77.361282 //will get from the database
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -58,7 +63,7 @@ function initMap() {
         center: centerMap //hope to change dependednt on assigned area
     });
 
-    // These are the objects that determine the icons for the different establishments
+    // These are the objects that determine the icon colors for the statuses different establishments
     var image_good =  {
         url: 'images/icons/good.png', // url
         scaledSize: new google.maps.Size(50, 50), // scaled size
@@ -82,8 +87,8 @@ function initMap() {
 
 
 <?php
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_array($result)) {
+    if (mysqli_num_rows($result2) > 0) {
+        while($row = mysqli_fetch_array($result2)) {
             //put the code to do the javascript markers here
             echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
             echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
@@ -98,8 +103,8 @@ function initMap() {
     }
 
     //displaying those that are expired
-    if (mysqli_num_rows($result2) > 0) {
-        while($row = mysqli_fetch_array($result2)) {
+    if (mysqli_num_rows($result3) > 0) {
+        while($row = mysqli_fetch_array($result3)) {
             //put the code to do the javascript markers here
             echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
             echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
@@ -114,8 +119,8 @@ function initMap() {
     }
 
     //displaying those that are soon to be expired
-    if (mysqli_num_rows($result3) > 0) {
-        while($row = mysqli_fetch_array($result3)) {
+    if (mysqli_num_rows($result4) > 0) {
+        while($row = mysqli_fetch_array($result4)) {
             //put the code to do the javascript markers here
             echo "var expiredSoonEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
             echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
@@ -171,8 +176,8 @@ function initMap() {
 
 
             <?php
-                /*if (mysqli_num_rows($result2) > 0) {
-                    while($row = mysqli_fetch_array($result2)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_array($result)) {
                         echo '<div class="est_name">'; // use php to add a coloured background to those expired establishments
                         echo "<h3>" . $row["establishment_name"] . "</h3>";
                         echo "<p><strong>Operator: </strong>" . $row["operator_first_name"] . " " . $row["operator_last_name"] . "</p>";
@@ -183,23 +188,7 @@ function initMap() {
                         echo '<div class="clearthis"></div>';
                         echo "</div>";
                     }
-                }
-
-                $a = 15;
-                $b = 10;
-                
-                if ($a < $b) {
-                    echo "less <br>";
-                }
-                elseif (($a > $b) && ($a < $b+10)) {
-                    echo "between <br>";
-                }
-                else {
-                    echo "greater <br>";
-                }
-
-                echo $today_date . "<br>" . $today_to_integer . "<br>" . $soon_expire;
-                */
+                }             
 
             ?>
 

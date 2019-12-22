@@ -1,10 +1,10 @@
 <?php 
 
 //Setting up the Database Connection Stuff
-$db_host = "localhost";
-$db_user = "root";
+$db_host = "mysql.freehostia.com";
+$db_user = "kamben89_food";
 $db_pass = "ELALIACH";
-$db_name = 'food_safety_inspector';
+$db_name = 'kamben89_food';
 
 $db_query = "SELECT * FROM `test_establishments` LIMIT 10";
 

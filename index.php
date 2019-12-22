@@ -151,6 +151,14 @@ function initMap() {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3mvBn2TXTjOkWonZ6jaGxu6vFXoz-Xc&callback=initMap">
 </script>
 
+<div id="legend">
+    <h4>Legend</p>
+    <p><img src="images/icons/expired.png" alt="expired"> Expired Establishments</p>
+    <p><img src="images/icons/soon.png" alt="soon expired">Establishments Expiring within 30 Days</p>
+    <p><img src="images/icons/good.png" alt="good">Certified Establishments</p>
+</div>
+
+
 
 
 <div id="right_div">

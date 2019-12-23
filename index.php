@@ -162,7 +162,7 @@ if (mysqli_num_rows($result4) > 0) {
 
 
 
-            <?php 
+            <?php /*
 
                 // This displays all of the results in the db in the sidebar
                 if (mysqli_num_rows($result) > 0) {
@@ -177,7 +177,7 @@ if (mysqli_num_rows($result4) > 0) {
                         echo '<div class="clearthis"></div>';
                         echo "</div>";
                     }
-                }      
+                }      */
             ?>
 
 

@@ -32,28 +32,6 @@ function initMap() {
         center: centerMap //hope to change dependednt on assigned area
     });
 
-    // These are the objects that determine the icon colors for the statuses different establishments
-    var image_good =  {
-        url: 'images/icons/good.png', // url
-        scaledSize: new google.maps.Size(50, 50), // scaled size
-        origin: new google.maps.Point(0,0), // origin
-        anchor: new google.maps.Point(0, 0) // anchor
-    };
-
-    var image_expired_soon =  {
-        url: 'images/icons/soon.png', // url
-        scaledSize: new google.maps.Size(50, 50), // scaled size
-        origin: new google.maps.Point(0,0), // origin
-        anchor: new google.maps.Point(0, 0) // anchor
-    };
-
-    var image_expired =  {
-        url: 'images/icons/expired.png', // url
-        scaledSize: new google.maps.Size(50, 50), // scaled size
-        origin: new google.maps.Point(0,0), // origin
-        anchor: new google.maps.Point(0, 0) // anchor
-    };
-
 <?php 
 //displaying those that are not expired
 if (mysqli_num_rows($result2) > 0) {
@@ -65,7 +43,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_good"; //color for the marker denoting the status of the establishment 
+        echo "icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }
@@ -80,7 +58,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_expired"; //color for the marker denoting the status of the establishment 
+        echo "icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }
@@ -95,7 +73,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_expired_soon"; //color for the marker denoting the status of the establishment 
+        echo "icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }

@@ -36,13 +36,13 @@ Below are the planned additions and updates to be made to the project in the per
 
 1. Show first letter of category to the marker - DONE!!!
 
-2. Stop icons moving from the specific geolocation upon zooming of the map
+2. Stop icons moving from the specific geolocation upon zooming of the map - DONE!!!
 
 3. Add the Category denotation to the Legend
 
 4. Add pop-ups that display establishment info upon hover over the icons
 
-5. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database
+5. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database (map centres at the centre of the location like this example: https://stackoverflow.com/questions/34057920/google-maps-marker-positioning-with-custom-icon)
 
 6. Remove extrenuous Google labels and stuff from Map
 

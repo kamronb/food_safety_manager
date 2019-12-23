@@ -1,6 +1,6 @@
 # Food Safety Manager V. 0.0.1
 ### Developer: Kamron Bennett
-### Website: www.kamron.org
+### Website: www.kamron.org/food-safety-manager
 ### Email: hello@kamron.org
 
 This is a piece of Software to manage Food Safety Inspections and organise and tag with geolocation the coordinates of the establishments. A food establishment register of sorts. This will allow anybody with access to monitor Food Safety activities in any given location from the local level all the way up to the regional and national level depending on user privileges. Supervisors can monitor individual officers, individual establishments, Sanitary Districts, Health Districts, Parish, Regions, Country determine status, areas that need improvement etc.

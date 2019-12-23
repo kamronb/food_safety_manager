@@ -70,6 +70,8 @@ Below are the planned additions and updates to be made to the project in the per
 
 8. Work on Website at http://www.kamron.org/food-safety-manager
 
+9. Add option to change styles of map based on 3 otpions
+
 ## Long-term Goals
 1. Develop Android Mobile Appp
 

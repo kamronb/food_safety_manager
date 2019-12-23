@@ -5,7 +5,7 @@
 
 # Description
 
-This is a piece of Software to manage Food Safety Inspections and organise and tag with geolocation the coordinates of the establishments. A food establishment register of sorts. This will allow anybody with access to monitor Food Safety activities in any given location from the local level all the way up to the regional and national level depending on user privileges. Supervisors can monitor individual officers, individual establishments, Sanitary Districts, Health Districts, Parish, Regions, Country determine status, areas that need improvement etc.
+This is a piece of Software to manage Food Safety Inspections and organise and tag establishments with geolocation of the coordinates of the establishments - a food establishment register of sorts. This will allow anybody with access to monitor Food Safety activities in any given location from the local level all the way up to the regional and national level depending on user privileges. Supervisors can monitor individual officers, individual establishments, Sanitary Districts, Health Districts, Parishes, Regions and Country, determine status, areas that may need improvement, view sanitary statuses of establishments, assigned areas, print daily, weekly, monthly, quarterly or special reports and also monitor performance of any officer, area, Health District among other features.
 
 Example of Privileges
 Grade I - only allowed to work on, view, edit, update, add/remove establishments in assaigned geographic area.
@@ -20,6 +20,10 @@ Regional FSO and REHO All Pivileges of previous officers in addition to all the 
 
 EHU Food Safety Director - All Privileges as previous but has Super User Privileges and Islandwide Access - can add and remove users in assigned areas alone
 
+Reports Printed
+
+    - Special Reports based on determined criteria 
+
 It shows the establishments on the map and the icon changes according to the status of the establishment. There are three states:
 
     - Expired (Red Icon), this is if the license expiry date has passed 
@@ -27,6 +31,7 @@ It shows the establishments on the map and the icon changes according to the sta
     - Expired soon (Yellow Icon), will within 30 days
     
     - Good Establishment (Green Icon) Will expire in more than 30 days
+
     
 # Goals
 Below are the planned additions and updates to be made to the project in the period of time it will be implemented. Once complete, completed will be added to the end of the line and once it is fully and satisfactorily implemented, it will be removed after two weeks.
@@ -51,6 +56,8 @@ Below are the planned additions and updates to be made to the project in the per
 8. Make Responsive with Nice Slide in transprent menu
 
 9. Strip all special characters, slashes and spaces and convert them to ASCII notation where necessary to not throw off the Javascript code (implement in PHP when that is set up)
+
+10. Add Styles for the maps, that have different themes, user can select them.
 
 
 ## Medium-term Goals

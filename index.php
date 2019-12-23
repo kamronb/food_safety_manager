@@ -28,8 +28,9 @@ function initMap() {
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10.5,
-        center: centerMap //hope to change dependednt on assigned area
+        center: centerMap, //hope to change dependednt on assigned area
+        zoom: 10.5, 
+        
     });
 
 <?php 
@@ -80,11 +81,9 @@ if (mysqli_num_rows($result4) > 0) {
 ?>
 }
 </script>
-
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3mvBn2TXTjOkWonZ6jaGxu6vFXoz-Xc&callback=initMap">
 </script>
-
 
 
 

@@ -50,7 +50,7 @@ Below are the planned additions and updates to be made to the project in the per
 
 8. Make Responsive with Nice Slide in transprent menu
 
-9. Strip all special characters and convert them to ASCII notation to not throw off the Javascript code (implement in PHP when that is set up)
+9. Strip all special characters, slashes and spaces and convert them to ASCII notation where necessary to not throw off the Javascript code (implement in PHP when that is set up)
 
 
 ## Medium-term Goals

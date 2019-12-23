@@ -1,38 +1,6 @@
 <!DOCTYPE html >
 <?php
 require("db_stuff/phpsqlajax_dbinfo.php");
-
-//converting date to integer for the comparison to put in the colour-changing icons
-
-/*
-$today_date = date("Y-m-d"); // Outputs formatted date
-$today_to_integer = strtotime($today_date); 
-$soon_expire = strtotime($today_date) + 30;
-*/
-
-//connect to the database
-$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-//check if the connection was successful
-if ($db_conn->connect_error) {
-    die("Connection failed: " . $db_conn->connect_error);
-}
-
-//general query to display all
-$query = "SELECT * FROM `test_establishments`";
-$result = $db_conn->query($query);
-
-//stuff for the good establishments
-$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
-$result2 = $db_conn->query($query_good);
-
-//stuff for the expired establishments
-$query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW() ";
-$result3 = $db_conn->query($query_expired);
-
-//stuff for the soon expired establishments
-$query_expired_in_30_days = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY ";
-$result4 = $db_conn->query($query_expired_in_30_days);
 ?>
 
 <head>
@@ -85,59 +53,52 @@ function initMap() {
         anchor: new google.maps.Point(0, 0) // anchor
     };
 
+<?php 
+//displaying those that are not expired
+if (mysqli_num_rows($result2) > 0) {
+    while($row = mysqli_fetch_array($result2)) {
+        //put the code to do the javascript markers here
+        echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+        echo "animation: google.maps.Animation.DROP,";
+        echo "map: map,";
+        echo "label: " . $row["registration_number"] . ",";
+        echo "title: '". $row["establishment_name"] . "',";
+        echo "icon: image_good";
+        echo "});";
+    }    
+}
 
-<?php
-    if (mysqli_num_rows($result2) > 0) {
-        while($row = mysqli_fetch_array($result2)) {
-            //put the code to do the javascript markers here
-            echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
-            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-            echo "animation: google.maps.Animation.DROP,";
-            echo "map: map,";
-            echo "label: " . $row["registration_number"] . ",";
-            echo "title: '". $row["establishment_name"] . "',";
-            echo "icon: image_good";
+//displaying those that are expired
+if (mysqli_num_rows($result3) > 0) {
+    while($row = mysqli_fetch_array($result3)) {
+        //put the code to do the javascript markers here
+        echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+        echo "animation: google.maps.Animation.DROP,";
+        echo "map: map,";
+        echo "label: " . $row["registration_number"] . ",";
+        echo "title: '". $row["establishment_name"] . "',";
+        echo "icon: image_expired";
+        echo "});";
+    }    
+}
 
-            echo "});";
-        }    
-    }
-
-    //displaying those that are expired
-    if (mysqli_num_rows($result3) > 0) {
-        while($row = mysqli_fetch_array($result3)) {
-            //put the code to do the javascript markers here
-            echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
-            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-            echo "animation: google.maps.Animation.DROP,";
-            echo "map: map,";
-            echo "label: " . $row["registration_number"] . ",";
-            echo "title: '". $row["establishment_name"] . "',";
-            echo "icon: image_expired";
-
-            echo "});";
-        }    
-    }
-
-    //displaying those that are soon to be expired
-    if (mysqli_num_rows($result4) > 0) {
-        while($row = mysqli_fetch_array($result4)) {
-            //put the code to do the javascript markers here
-            echo "var expiredSoonEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
-            echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-            echo "animation: google.maps.Animation.DROP,";
-            echo "map: map,";
-            echo "label: " . $row["registration_number"] . ",";
-            echo "title: '". $row["establishment_name"] . "',";
-            echo "icon: image_expired_soon";
-
-            echo "});";
-        }    
-    }
-
-
-
-?>       
-
+//displaying those that are expired
+if (mysqli_num_rows($result4) > 0) {
+    while($row = mysqli_fetch_array($result4)) {
+        //put the code to do the javascript markers here
+        echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
+        echo "animation: google.maps.Animation.DROP,";
+        echo "map: map,";
+        echo "label: " . $row["registration_number"] . ",";
+        echo "title: '". $row["establishment_name"] . "',";
+        echo "icon: image_expired_soon";
+        echo "});";
+    }    
+}
+?>
 }
 
 
@@ -152,10 +113,29 @@ function initMap() {
 </script>
 
 <div id="legend">
-    <h4>Legend</p>
-    <p><img src="images/icons/expired.png" alt="expired"> Expired Establishments</p>
-    <p><img src="images/icons/soon.png" alt="soon expired">Establishments Expiring within 30 Days</p>
-    <p><img src="images/icons/good.png" alt="good">Certified Establishments</p>
+    <h4>Legend</h4>
+        <div class="picture-holder">
+            <img src="images/icons/expired.png" alt="expired">
+        </div>
+        <div class="paragraph-holder">
+            <p>Expired Establishments</p>
+        </div>
+        <div class="clearthis"></div>
+
+        <div class="picture-holder">
+            <img src="images/icons/soon.png" alt="soon expired">
+        </div>
+        <div class="paragraph-holder">
+            <p>Establishments Expiring within 30 Days</p>
+        </div>
+        <div class="clearthis"></div>
+
+        <div class="picture-holder">
+            <img src="images/icons/good.png" alt="good"> 
+        </div>
+        <div class="paragraph-holder">
+            <p>Certified Establishments</p>
+        </div>
 </div>
 
 
@@ -183,7 +163,9 @@ function initMap() {
 
 
 
-            <?php
+            <?php 
+
+                // This displays all of the results in the db in the sidebar
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)) {
                         echo '<div class="est_name">'; // use php to add a coloured background to those expired establishments
@@ -196,8 +178,7 @@ function initMap() {
                         echo '<div class="clearthis"></div>';
                         echo "</div>";
                     }
-                }             
-
+                }      
             ?>
 
 

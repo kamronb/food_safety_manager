@@ -17,4 +17,4 @@ It shows the establishments on the map and the icon changes according to the sta
 
 Planned Additions
 
-1. 
+1. Strip all character's and convert to ASCII notation to not throw off the code

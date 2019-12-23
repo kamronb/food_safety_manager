@@ -22,7 +22,8 @@ It shows the establishments on the map and the icon changes according to the sta
     
     - Good Establishment (Green Icon) Will expire in more than 30 days
     
-    
+#Goals
+
 
 ## Short-term Goals and other Planned Additions
 
@@ -43,7 +44,7 @@ It shows the establishments on the map and the icon changes according to the sta
 8. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database
 
 
-# Medium-term Goals
+## Medium-term Goals
 1. Work out the statuses of the different categories, Health Districts, Parishes, Regions etc.
 
 2. Work on Login and User Privileges adding and removing users
@@ -58,7 +59,7 @@ It shows the establishments on the map and the icon changes according to the sta
 
 7. Work on Website at http://www.kamron.org/food-safety-manager
 
-# Long-term Goals
+## Long-term Goals
 1. Develop Android Mobile Appp
 
 2. Develop iOS Mobile App

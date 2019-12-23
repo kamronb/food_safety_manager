@@ -33,7 +33,7 @@ $result = $db_conn->query($query);
 $query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
 $result2 = $db_conn->query($query_good);
 
-//stuff for the expired establishments
+//Selecting the expired establishments
 $query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW()";
 $result3 = $db_conn->query($query_expired);
 

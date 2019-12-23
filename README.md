@@ -1,5 +1,5 @@
 # Food Safety Manager V. 0.0.1
-### Developer: Kamron Bennett
+### Developer: Kamron J. Bennett
 ### Website: www.kamron.org/food-safety-manager
 ### Email: hello@kamron.org
 

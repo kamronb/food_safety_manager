@@ -22,7 +22,7 @@ It shows the establishments on the map and the icon changes according to the sta
     
     - Good Establishment (Green Icon) Will expire in more than 30 days
     
-#Goals
+# Goals
 
 
 ## Short-term Goals and other Planned Additions

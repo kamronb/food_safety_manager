@@ -32,21 +32,23 @@ Below are the planned additions and updates to be made to the project in the per
 
 ## Short-term Goals and other Planned Additions
 
-1. Strip all special characters and convert them to ASCII notation to not throw off the Javascript code (implement in PHP when that is set up)
+1. Show first letter of category to the marker - DONE!!!
 
-2. Add pop-ups that display establishment info upon hover over the icons
+2. Stop icons moving from the specific geolocation upon zooming of the map
 
-3. Add First Letter of the establishment category to the icon
+3. Add the Category denotation to the Legend
 
-4. Stop icons moving from the specific geolocation upon zooming of the map
+4. Add pop-ups that display establishment info upon hover over the icons
 
-5. Make Responsive with Nice Slide in transprent menu
+5. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database
 
-6. Update Legend to include Categories of Establishments
+6. Remove extrenuous Google labels and stuff from Map
 
 7. Add features to select establishments by status, locale, categories, etc.
 
-8. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database
+8. Make Responsive with Nice Slide in transprent menu
+
+9. Strip all special characters and convert them to ASCII notation to not throw off the Javascript code (implement in PHP when that is set up)
 
 
 ## Medium-term Goals

@@ -63,7 +63,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_good";
         echo "});";
@@ -78,7 +78,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired";
         echo "});";
@@ -93,7 +93,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired_soon";
         echo "});";
@@ -162,7 +162,7 @@ if (mysqli_num_rows($result4) > 0) {
 
 
 
-            <?php /*
+            <?php 
 
                 // This displays all of the results in the db in the sidebar
                 if (mysqli_num_rows($result) > 0) {
@@ -177,7 +177,7 @@ if (mysqli_num_rows($result4) > 0) {
                         echo '<div class="clearthis"></div>';
                         echo "</div>";
                     }
-                }      */
+                }      
             ?>
 
 

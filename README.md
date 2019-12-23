@@ -24,7 +24,7 @@ It shows the establishments on the map and the icon changes according to the sta
     
     
 
-# Short-term Goals and other Planned Additions
+## Short-term Goals and other Planned Additions
 
 1. Strip all special characters and convert them to ASCII notation to not throw off the code
 

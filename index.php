@@ -58,14 +58,14 @@ function initMap() {
 //displaying those that are not expired
 if (mysqli_num_rows($result2) > 0) {
     while($row = mysqli_fetch_array($result2)) {
-        //put the code to do the javascript markers here
+        //putting the code to do the javascript markers here (not expired)
         echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_good";
+        echo "icon: image_good"; //color for the marker denoting the status of the establishment 
         echo "});";
     }    
 }
@@ -73,29 +73,29 @@ if (mysqli_num_rows($result2) > 0) {
 //displaying those that are expired
 if (mysqli_num_rows($result3) > 0) {
     while($row = mysqli_fetch_array($result3)) {
-        //put the code to do the javascript markers here
+        //putting the code to do the javascript markers here (expired)
         echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_expired";
+        echo "icon: image_expired"; //color for the marker denoting the status of the establishment 
         echo "});";
     }    
 }
 
-//displaying those that are expired
+//displaying those that will expire within 30 days
 if (mysqli_num_rows($result4) > 0) {
     while($row = mysqli_fetch_array($result4)) {
-        //put the code to do the javascript markers here
+        //putting the code to do the javascript markers here
         echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: image_expired_soon";
+        echo "icon: image_expired_soon"; //color for the marker denoting the status of the establishment 
         echo "});";
     }    
 }

@@ -23,6 +23,7 @@ It shows the establishments on the map and the icon changes according to the sta
     - Good Establishment (Green Icon) Will expire in more than 30 days
     
 # Goals
+Below are the planned additions and updates to be made to the project in the period of time it will be implemented. Once complete, completed will be added to the end of the line and once it is fully and satisfactorily implemented, it will be removed after two weeks.
 
 
 ## Short-term Goals and other Planned Additions

@@ -30,15 +30,15 @@ $query = "SELECT * FROM `test_establishments`";
 $result = $db_conn->query($query);
 
 //stuff for the good establishments
-$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY LIMIT 1";
+$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
 $result2 = $db_conn->query($query_good);
 
 //stuff for the expired establishments
-$query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW() LIMIT 1";
+$query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW()";
 $result3 = $db_conn->query($query_expired);
 
 //stuff for the establishments that will expire within 30 days
-$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY LIMIT 1";
+$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY";
 $result4 = $db_conn->query($query_good);
 
 ?>

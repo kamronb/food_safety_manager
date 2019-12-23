@@ -15,7 +15,7 @@ It shows the establishments on the map and the icon changes according to the sta
     
     
 
-Planned Additions
+# Short-Term Goals Planned Additions
 
 1. Strip all character's and convert to ASCII notation to not throw off the code
 
@@ -24,3 +24,19 @@ Planned Additions
 3. Add First Letter of the establishment category to the icon
 
 4. Stop Icon moving from the geolocation upon zooming
+
+5. Make Responsive with Fancy Menu
+
+
+# Midium Term Goals
+1. Work out the statuses of the different categories, Health Districts, Parishes, Regions etc.
+
+2. Work on Login and Privileges
+
+3. Work on Automatic emails to proprietors who have email addresses to remind of application
+
+4. Work on Printing Monthly and Quarterly Reports, Statuses, Addition and Subtraction of Establishments
+
+5. Incorporate Inspection (of the officer) updating and show last 5 inspections Reports (text formatting)
+
+6. Work on Setting up a Reporting Period and Run Reports from set periods

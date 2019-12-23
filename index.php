@@ -63,7 +63,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . $row["establishment_category"] . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_good";
         echo "});";
@@ -78,7 +78,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . $row["establishment_category"] . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired";
         echo "});";
@@ -93,7 +93,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: '" . $row["establishment_category"] . "',"; 
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired_soon";
         echo "});";

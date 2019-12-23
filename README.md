@@ -18,3 +18,7 @@ It shows the establishments on the map and the icon changes according to the sta
 Planned Additions
 
 1. Strip all character's and convert to ASCII notation to not throw off the code
+
+2. Add pop-ups that display establishment info upon hover over the icon
+
+3. Add First Letter of the establishment category to the icon

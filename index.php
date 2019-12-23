@@ -20,8 +20,9 @@ require("db_stuff/phpsqlajax_dbinfo.php");
 <body>
 <div id="map"></div>
 
-<script id="map-stuff">
+<script>
 function initMap() {    
+    
     var centerMap = { //where to centre map must change dependent on assigned area of officer
         lat: 18.205253, lng: -77.361282 //will get from the database
     };
@@ -62,7 +63,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: " . $row["registration_number"] . ",";
+        echo "label: '" . $row["establishment_category"] . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_good";
         echo "});";
@@ -77,7 +78,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: " . $row["registration_number"] . ",";
+        echo "label: '" . $row["establishment_category"] . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired";
         echo "});";
@@ -92,7 +93,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP,";
         echo "map: map,";
-        echo "label: " . $row["registration_number"] . ",";
+        echo "label: '" . $row["establishment_category"] . "',"; 
         echo "title: '". $row["establishment_name"] . "',";
         echo "icon: image_expired_soon";
         echo "});";
@@ -100,17 +101,15 @@ if (mysqli_num_rows($result4) > 0) {
 }
 ?>
 }
-
-
-
-
-
-    //   http://localhost/food_safety_manager/db_stuff/db_info_guide.json
 </script>
 
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM3mvBn2TXTjOkWonZ6jaGxu6vFXoz-Xc&callback=initMap">
 </script>
+
+
+
+
 
 <div id="legend">
     <h4>Legend</h4>

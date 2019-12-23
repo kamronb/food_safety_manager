@@ -22,3 +22,5 @@ Planned Additions
 2. Add pop-ups that display establishment info upon hover over the icon
 
 3. Add First Letter of the establishment category to the icon
+
+4. Stop Icon moving from the geolocation upon zooming

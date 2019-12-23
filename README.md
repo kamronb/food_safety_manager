@@ -24,6 +24,15 @@ Reports Printed
 
     - Special Reports based on determined criteria 
 
+    - Daily Reports to track any changes
+
+    - Weekly Reports
+
+    - Monthly Report for the Officer, Sanitary District, Health District, Parish, Region and Country
+
+    - Show trends in performance over set periods
+
+
 It shows the establishments on the map and the icon changes according to the status of the establishment. There are three states:
 
     - Expired (Red Icon), this is if the license expiry date has passed 

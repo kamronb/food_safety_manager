@@ -3,7 +3,8 @@
 # Website: www.kamron.org
 # Email: hello@kamron.org
 
-This is a piece of Software to manage Food Safety Inspections and organise and tag with geolocation the coordinates of the establishments. A food establishment register of sorts.
+This is a piece of Software to manage Food Safety Inspections and organise and tag with geolocation the coordinates of the establishments. A food establishment register of sorts. This will allow anybody with access to monitor Food Safety activities in any given location from the local level all the way up to the regional and national level depending on user privileges.
+
 
 It shows the establishments on the map and the icon changes according to the status of the establishment. There are three states:
 
@@ -15,9 +16,9 @@ It shows the establishments on the map and the icon changes according to the sta
     
     
 
-# Short-Term Goals Planned Additions
+# Short-term Goals and other Planned Additions
 
-1. Strip all character's and convert to ASCII notation to not throw off the code
+1. Strip all special characters and convert them to ASCII notation to not throw off the code
 
 2. Add pop-ups that display establishment info upon hover over the icon
 
@@ -28,7 +29,7 @@ It shows the establishments on the map and the icon changes according to the sta
 5. Make Responsive with Fancy Menu
 
 
-# Midium Term Goals
+# Medium-term Goals
 1. Work out the statuses of the different categories, Health Districts, Parishes, Regions etc.
 
 2. Work on Login and Privileges
@@ -39,4 +40,11 @@ It shows the establishments on the map and the icon changes according to the sta
 
 5. Incorporate Inspection (of the officer) updating and show last 5 inspections Reports (text formatting)
 
-6. Work on Setting up a Reporting Period and Run Reports from set periods
+6. Work on Setting up a Reporting Period and Run Reports from set periods for set periods
+
+7. Work on Website at http://www.kamron.org/food-safety-manager
+
+# Long-term Goals
+1. Develop Android Mobile Appp
+
+2. Develop iOS Mobile App

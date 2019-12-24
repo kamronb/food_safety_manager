@@ -88,7 +88,12 @@ Below are the planned additions and updates to be made to the project in the per
 
 9. Add option to change styles of map based on 3 options
 
+10. Notifies of when monthly reports are due
+
+11. Show's Establishment's inspected and gives printout and status
+
 ## Long-term Goals
 1. Develop Android Mobile Appp
 
 2. Develop iOS Mobile App
+

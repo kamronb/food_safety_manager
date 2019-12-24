@@ -1,0 +1,21 @@
+Create a global variable that counts the number of entries returned from queries for expired, soon expired and good establishments and works out the
+percentage certified (including those that will expire in 30 days), uncertified and about to expire
+
+Create a function that does the while loop and returns the value of the number of entries and stor that in a variable   
+    
+    EG: function TotalExpired () {
+            count the number of values returned from DB query
+            add them to $variable
+
+        return $variable
+        }
+
+        $expired_count = TotalExpired();
+
+    this can be done for all the queries I need to work on
+
+
+List those inspected during the reporting period and status of last inspection along with associated notes and thing 
+
+Inspections can be done on the app receipt sent to email address of the establishment and one book can be written up of the inspection and the 
+proprietor gets a copy of that and also one sent to the email address associated with the establishment or one that is entered.

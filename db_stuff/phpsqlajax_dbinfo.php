@@ -26,19 +26,19 @@ if ($db_conn->connect_error) {
 }
 
 //general query to display all used in right sidebar
-$query = "SELECT * FROM `test_establishments`";
+$query = "SELECT * FROM `food_safety_inspector`.`test_establishments`";
 $result = $db_conn->query($query);
 
 //stuff for the good establishments
-$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
+$query_good = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE expiry_date > NOW() + INTERVAL 30 DAY";
 $result2 = $db_conn->query($query_good);
 
 //Selecting the expired establishments
-$query_expired = "SELECT * FROM `test_establishments` WHERE expiry_date < NOW()";
+$query_expired = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE expiry_date < NOW()";
 $result3 = $db_conn->query($query_expired);
 
 //stuff for the establishments that will expire within 30 days
-$query_good = "SELECT * FROM `test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY";
+$query_good = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY";
 $result4 = $db_conn->query($query_good);
 
 ?>

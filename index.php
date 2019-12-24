@@ -29,358 +29,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
-        zoom: 10.5, styles: [ // Need to get this out of the actual page and link it, but it will show up in any event
-  {
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#ebe3cd"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#523735"
-      }
-    ]
-  },
-  {
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#f5f1e6"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#c9b2a6"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "stylers": [
-      {
-        "visibility": "on"
-      },
-      {
-        "weight": 8
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "saturation": 65
-      },
-      {
-        "lightness": 55
-      },
-      {
-        "visibility": "on"
-      },
-      {
-        "weight": 8
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.country",
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#dcd2be"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.land_parcel",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#ae9e90"
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "stylers": [
-      {
-        "saturation": -5
-      },
-      {
-        "lightness": -25
-      },
-      {
-        "visibility": "on"
-      },
-      {
-        "weight": 2
-      }
-    ]
-  },
-  {
-    "featureType": "administrative.province",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dfd2ae"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dfd2ae"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#93817c"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.attraction",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.government",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.medical",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.place_of_worship",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.school",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.sports_complex",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#f5f1e6"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#fdfcf8"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#f8c967"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#e9bc62"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway.controlled_access",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#e98d58"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway.controlled_access",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#db8555"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#806b63"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dfd2ae"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#8f7d77"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#ebe3cd"
-      }
-    ]
-  },
-  {
-    "featureType": "transit.station",
-    "elementType": "geometry",
-    "stylers": [
-      {
-        "color": "#dfd2ae"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#b9d3c2"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      {
-        "color": "#92998d"
-      }
-    ]
-  }
-]
+        zoom: 10.5
     });
 
 <?php 
@@ -485,15 +134,34 @@ if (mysqli_num_rows($result4) > 0) {
     </div>
 
     <div id="db_results">
-        <h1>RESULTS</h1>
+        <h1>SUMMARY</h1>
         <div id="results-to-show">
+          <!-- 
+            All this will be filled in Dynamically, both from Database and User Privileges (in Database) and other Stuff Associated with the user login start HERE:
+          -->
+          <div class="est_name">
+            <!-- this is a summary of the current login, shows features and all stuff associated with it -->
+            <h3>Hello: Kamron Bennett</h3>
+            <p><strong>Health District: </strong>Falmouth</p>
+            <p><strong>Parish: </strong>Trelawny</p>
+            <p>&nbsp;</p>
+            <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
+            <p><strong>Total Number of Establishments: </strong><?php echo mysqli_num_rows($result); ?></p>
+            <p><strong>Total Number Certified: </strong><?php echo mysqli_num_rows($result2) + mysqli_num_rows($result4); ?></p>
+            <p><strong>Total Number Expired: </strong><?php echo mysqli_num_rows($result3); ?></p>
+            <p><strong>Total Number Expiring Soon: </strong><?php echo mysqli_num_rows($result4); ?></p>
+            <p><strong>Percent Satisfactory: </strong><?php echo round(((mysqli_num_rows($result2) + mysqli_num_rows($result4))/mysqli_num_rows($result)) * 100, 2) . "%" /*working out the percentage and rounding to two decimal places will fix to work with variables and functions in the future*/; ?></p>
+          </div> 
+          <!-- 
+            All this will be filled in Dynamically, both from Database and User Privileges and other Stuff Associated with the user login end HERE:
+          -->
 
 
 
             <?php 
 
                 // This displays all of the results in the db in the sidebar
-                if (mysqli_num_rows($result) > 0) {
+                /* if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_array($result)) {
                         echo '<div class="est_name">'; // use php to add a coloured background to those expired establishments
                         echo "<h3>" . $row["establishment_name"] . "</h3>";
@@ -505,7 +173,8 @@ if (mysqli_num_rows($result4) > 0) {
                         echo '<div class="clearthis"></div>';
                         echo "</div>";
                     }
-                }      
+                }  
+                */    
             ?>
 
 

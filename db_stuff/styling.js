@@ -2,7 +2,6 @@
 // according to the user's preference that can be changed in the settings menu.
 // Available themes: Dark, Standard, High Contrast, White, 
 // No Features, Medium Feature Density, All Features, determine these later
-
 styles: [
   {
     "elementType": "geometry",

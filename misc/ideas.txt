@@ -1,7 +1,44 @@
-Create a global variable that counts the number of entries returned from queries for expired, soon expired and good establishments and works out the
-percentage certified (including those that will expire in 30 days), uncertified and about to expire
+################################################### SCRATCH PAD (OF SORTS) ##################################################
+A specific 0utline of thoughts and ideas and features and functionality to implement in the software
+#############################################################################################################################
 
-Create a function that does the while loop and returns the value of the number of entries and stor that in a variable   
+- List those inspected during the reporting period and status of last inspection along with associated notes and thing 
+
+- Ensure that the working out in the sidebar will incorporate information from the user's data and stuff in the database, 
+  therefore queries should be updated according to the user and user privileges
+
+- Find all the information from the user assigned in the database, so SELECT * FROM db_name WHERE inspector=OFFICER_ASSIGNED
+  so it shows only the establishments associated with that Officer
+
+- Runs and formats a listing of all the establishments done within a specific period, for reporting purposes with the option
+  of listing all the inspector's comments ranging from the last 5 to the last one (get this info from storage of some sort 
+  (XML, JSON, Database or external TXT file, whichever is most feasible).
+
+- Inspections can be done on the app receipt sent to email address of the establishment and one book can be written up of the 
+  inspection and the proprietor gets a copy of that and also one sent to the email address associated with the establishment 
+  or one that is entered.
+
+- User Profile Section (can get from the top in sidebar) will show user information and they can edit stuff such as email to 
+  get notifications, phone number, update password, etc. It will show all the last inspections/activities, can be edited, and 
+  viewed by officer and officers with advanced privileges, will track any changes (separate page)
+
+
+
+
+######################################## IDEAS FOR HOW TO APPROACH THE PROGRAMMING ########################################
+What to do in the code and how to do it
+###########################################################################################################################
+ - Implement the use of two databases, one with the user info and password and stuff associated with profile and assigned
+   areas and so forth SHOW WORKING
+
+ - Both databases will be dependent on each oter
+
+
+
+
+ - For the Working out of the status in the left of the screen
+
+ Create a function that does the while loop and returns the value of the number of entries and stor that in a variable   
     
     EG: function TotalExpired () {
             count the number of values returned from DB query
@@ -13,9 +50,3 @@ Create a function that does the while loop and returns the value of the number o
         $expired_count = TotalExpired();
 
     this can be done for all the queries I need to work on
-
-
-List those inspected during the reporting period and status of last inspection along with associated notes and thing 
-
-Inspections can be done on the app receipt sent to email address of the establishment and one book can be written up of the inspection and the 
-proprietor gets a copy of that and also one sent to the email address associated with the establishment or one that is entered.

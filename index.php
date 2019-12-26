@@ -7,7 +7,7 @@ require("db_stuff/phpsqlajax_dbinfo.php");
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/style_responsive.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/responsive_style.css" media="screen" />
     <title>Using MySQL and PHP with Google Maps</title>
     <style>
         html, body {
@@ -76,7 +76,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(75, 75), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
+        echo "icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }
@@ -91,7 +91,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(75, 75), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
+        echo "icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }
@@ -106,7 +106,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo "map: map,";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
         echo "title: '". $row["establishment_name"] . "',";
-        echo "icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(75, 75), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
+        echo "icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
 }
@@ -177,13 +177,39 @@ if (mysqli_num_rows($result4) > 0) {
             <h3>Hello: Kamron Bennett</h3>
             <p><strong>Health District: </strong>Falmouth</p>
             <p><strong>Parish: </strong>Trelawny</p>
-            <p>&nbsp;</p>
+         </div>
+         <div class="est_name">
             <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
+            <h2>Overal Status</h2>
             <p><strong>Total Number of Establishments: </strong><?php echo mysqli_num_rows($result); ?></p>
             <p><strong>Total Number Certified: </strong><?php echo mysqli_num_rows($result2) + mysqli_num_rows($result4); ?></p>
             <p><strong>Total Number Expired: </strong><?php echo mysqli_num_rows($result3); ?></p>
             <p><strong>Total Number Expiring Soon: </strong><?php echo mysqli_num_rows($result4); ?></p>
-            <p><strong>Percent Satisfactory: </strong><?php echo round(((mysqli_num_rows($result2) + mysqli_num_rows($result4))/mysqli_num_rows($result)) * 100, 2) . "%" /*working out the percentage and rounding to two decimal places will fix to work with variables and functions in the future*/; ?></p>
+            <p><strong>Percent Satisfactory: </strong>
+                <?php 
+                    $percentage = round(((mysqli_num_rows($result2) + mysqli_num_rows($result4))/mysqli_num_rows($result)) * 100, 0);
+                    /*working out the percentage and rounding to two decimal places will fix to work with variables and functions in the future*/ 
+
+                    echo $percentage;
+                    echo '<div id="percent_box_base"><div id="percent_sat" style="width: ' . $percentage . '%; background: '; 
+                    if ($percentage >= 80) {
+                        echo "#00AF11";
+                    }
+                    elseif (($percentage > 66) && ($percentage < 80)) {
+                        echo "#FFD046";
+                    }
+                    else {
+                        echo "#FF3B3B";
+                    }
+
+
+                    echo '"><p>'; 
+                    echo round($percentage, 0) . '% Satisfactory</p></div></div>';
+                ?>
+            </p>
+            <h2>Monthly Activity</h2>
+            <p><strong>Inspections this Reporting Period: </strong>35</p> <!--Get this from the database as the number of inspections will be entered there-->
+            <p><strong>Certifications this Reporting Period: </strong>15</p> <!--Get this from the database too as the certification dates will be entered there-->
           </div> 
           <!-- 
             All this will be filled in Dynamically, both from Database and User Privileges and other Stuff Associated with the user login end HERE:

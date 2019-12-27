@@ -5,7 +5,14 @@ A specific 0utline of thoughts and ideas and features and functionality to imple
 - List those inspected during the reporting period and status of last inspection along with associated notes and thing 
 
 - Ensure that the working out in the sidebar will incorporate information from the user's data and stuff in the database, 
-  therefore queries should be updated according to the user and user privileges
+  therefore queries should be updated according to the user and user privileges, can choose to get push notifications (in 
+  the app and/or email notifications), notifications will only be sent on weekdays, 8:30AM to 4:00PM for the following 
+  pieces of information.
+    - Reporting period (7 Days and 24 Hours)
+    - Updates to Profile (email)
+    - Changes in statuses of establishment from sat to soon expired and from soon expired to unsat, will do so first 7 days 
+      in advance and 24 hours before and then the day of change in status, this list will be tracked for the month and 
+      daily, weekly, monthly and special reports can be run.
 
 - Find all the information from the user assigned in the database, so SELECT * FROM db_name WHERE inspector=OFFICER_ASSIGNED
   so it shows only the establishments associated with that Officer
@@ -14,6 +21,9 @@ A specific 0utline of thoughts and ideas and features and functionality to imple
   of listing all the inspector's comments ranging from the last 5 to the last one (get this info from storage of some sort 
   (XML, JSON, Database or external TXT file, whichever is most feasible).
 
+- Food Inspection form to be included in a page that can be edited and notes made to store in DB (or wherever) to show (and 
+  store the inspections carried out over the past year. 
+
 - Inspections can be done on the app receipt sent to email address of the establishment and one book can be written up of the 
   inspection and the proprietor gets a copy of that and also one sent to the email address associated with the establishment 
   or one that is entered.
@@ -21,6 +31,9 @@ A specific 0utline of thoughts and ideas and features and functionality to imple
 - User Profile Section (can get from the top in sidebar) will show user information and they can edit stuff such as email to 
   get notifications, phone number, update password, etc. It will show all the last inspections/activities, can be edited, and 
   viewed by officer and officers with advanced privileges, will track any changes (separate page)
+
+- When adding a new establishment, the option of getting location will be used to store the location of the establishment
+  in the database automatically (something like set current location or something along those lines)
 
 
 
@@ -32,6 +45,8 @@ What to do in the code and how to do it
    areas and so forth SHOW WORKING
 
  - Both databases will be dependent on each oter
+
+ - Remember to create indexes for the rows that will be queried most
 
 
 

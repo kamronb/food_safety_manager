@@ -63,8 +63,7 @@ body {
 #meta_div {
 	background: #94CCED;
 	margin: 5% 0 0 0;
-	padding: 20px;
-	min-height: 300px;
+	padding: 5%;
 }
 
 #meta_div img {
@@ -96,16 +95,15 @@ body {
 
 #db_results {
 	width: 90%;
-	padding: 5% 5% 0 5%;
+	padding: 5%;
+	height: auto;
 	margin: 5% 0 0 0;
 	background: #FFFFFF;
-	height: 56.5%;
-	overflow-y: scroll;
 }
 
 #db_results .est_name {
-	width: 95%;
-	padding: 10px;
+	width: 90%;
+	padding: 5%;
 	border: 1px solid #000000;
 	margin: 10px 0;
 }
@@ -125,6 +123,23 @@ body {
 	color: #FF8C00;
 }
 
+#percent_box_base {
+	width: 100%;
+	height: 50px;
+	margin: 10px auto;
+	background: #F1EFE9;
+}
+
+#percent_sat {
+	float: left;
+	height: 100%;
+	text-align: center;
+}
+
+#percent_sat p {
+	padding: 10px 0;
+}
+
 #legend {
 	position: absolute;
 	bottom: 50px;
@@ -135,8 +150,8 @@ body {
 }
 
 #legend img {
-	width: 40px;
-	padding: 80px 0 10 0;
+	width: 50px;
+	padding: 100px 0 10 0;
 }
 
 #legend .picture-holder {

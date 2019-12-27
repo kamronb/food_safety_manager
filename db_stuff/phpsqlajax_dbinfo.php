@@ -34,7 +34,7 @@ $query_good = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE
 $result2 = $db_conn->query($query_good);
 
 //Selecting the expired establishments
-$query_expired = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE expiry_date <= NOW()";
+$query_expired = "SELECT * FROM `food_safety_inspector`.`test_establishments` WHERE expiry_date < NOW()";
 $result3 = $db_conn->query($query_expired);
 
 //stuff for the establishments that will expire within 30 days

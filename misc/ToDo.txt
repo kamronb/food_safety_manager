@@ -7,4 +7,8 @@ This is where I will list all of the features to be worked on in the order they 
    - Allows user to edit info
    - Shows inspections over last year
    - Shows all notes associated with the establishment
+   - Shows different statuses, shows breakdown of overall establishments in a
+     pie chart, can select overall breakdown or via establishment categories
+2. Add new column to database showing date of last inspection and figure out 
+   a way to track last 10 inspections.
    

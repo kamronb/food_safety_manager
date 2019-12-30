@@ -11,6 +11,11 @@
 		padding: 20px;
 	}
 
+	#meta_div img {
+		height: 100%;
+		margin-top: -10px;
+	}
+
 	#right_div {
 		right: 3.5%;
 		top: 4%;
@@ -36,10 +41,22 @@
 		padding: 25px 10px 10 30px;
 	}
 
+	#db_results .est_name {
+		width: 90%;
+		padding: 0px 0px 10px 0px;;
+		border: 1px solid #000000;
+	}
+
+	#db_results .view_more a {
+		float: right;
+		padding: 0px 0px 10px 0px;
+		margin-bottom: 10px;
+	}
+
 	#percent_box_base {
 		width: 100%;
-		height: 50px;
-		margin: 10px auto 10px auto;
+		height: 40px;
+		margin: 20px auto;
 	}
 
 	#percent_sat {
@@ -49,7 +66,7 @@
 	}
 
 	#percent_sat p {
-		padding: 15px 0;
+		padding: 1em 0;
 	}
 
 }

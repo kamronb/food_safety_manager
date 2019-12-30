@@ -177,7 +177,9 @@ if (mysqli_num_rows($result4) > 0) {
             <h3>Hello: Kamron Bennett</h3>
             <p><strong>Health District: </strong>Falmouth</p>
             <p><strong>Parish: </strong>Trelawny</p>
+            <p class="space_para">&nbsp;</p>
             <p class="view_more"><a href="#">user profile</a></p>
+            <p class="space_para">&nbsp;</p>
          </div>
          <div class="est_name">
             <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
@@ -211,7 +213,9 @@ if (mysqli_num_rows($result4) > 0) {
             <h2>Monthly Activity</h2>
             <p><strong>Inspections this Reporting Period: </strong>35</p> <!--Get this from the database as the number of inspections will be entered there-->
             <p><strong>Certifications this Reporting Period: </strong>15</p> <!--Get this from the database too as the certification dates will be entered there-->
+            <p class="space_para">&nbsp;</p>
             <p class="view_more"><a href="#">more details</a></p>
+            <p class="space_para">&nbsp;</p>
           </div> 
           <!-- 
             All this will be filled in Dynamically, both from Database and User Privileges and other Stuff Associated with the user login end HERE:

@@ -70,12 +70,12 @@ function initMap() {
 if (mysqli_num_rows($result2) > 0) {
     while($row = mysqli_fetch_array($result2)) {
         //putting the code to do the javascript markers here (not expired)
-        echo "var goodEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "var estMarker" . $row["registration_number"] . " = new google.maps.Marker ({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-        echo "animation: google.maps.Animation.DROP,";
+        echo " animation: google.maps.Animation.DROP, ";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
-        echo "title: '". $row["establishment_name"] . "',";
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "', "; //Show only the first letter of the Category on the map Marker
+        echo "title: '". $row["establishment_name"] . "', ";
         echo "icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
@@ -85,12 +85,12 @@ if (mysqli_num_rows($result2) > 0) {
 if (mysqli_num_rows($result3) > 0) {
     while($row = mysqli_fetch_array($result3)) {
         //putting the code to do the javascript markers here (expired)
-        echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "var estMarker" . $row["registration_number"] . " = new google.maps.Marker ({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-        echo "animation: google.maps.Animation.DROP,";
+        echo " animation: google.maps.Animation.DROP, ";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
-        echo "title: '". $row["establishment_name"] . "',";
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "', "; //Show only the first letter of the Category on the map Marker
+        echo "title: '". $row["establishment_name"] . "', ";
         echo "icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    
@@ -100,12 +100,12 @@ if (mysqli_num_rows($result3) > 0) {
 if (mysqli_num_rows($result4) > 0) {
     while($row = mysqli_fetch_array($result4)) {
         //putting the code to do the javascript markers here
-        echo "var expiredEstMarker" . $row["registration_number"] . " = new google.maps.Marker({";
+        echo "var estMarker" . $row["registration_number"] . " = new google.maps.Marker ({";
         echo "position: {lat: " . $row["establishment_location_lat"] . ", lng: " . $row["establishment_location_lon"] . "},";
-        echo "animation: google.maps.Animation.DROP,";
+        echo " animation: google.maps.Animation.DROP, ";
         echo "map: map,";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "',"; //Show only the first letter of the Category on the map Marker
-        echo "title: '". $row["establishment_name"] . "',";
+        echo "label: '" . substr($row["establishment_category"], 0, 1) . "', "; //Show only the first letter of the Category on the map Marker
+        echo "title: '". $row["establishment_name"] . "', ";
         echo "icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0), anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . "," . $row["establishment_location_lon"] . ")}"; // Selecting and setting the icon into postion when scrolling, icon set to the actual coordinates even while zooming in and out
         echo "});";
     }    

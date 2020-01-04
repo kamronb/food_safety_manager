@@ -9,6 +9,18 @@ This is where I will list all of the features to be worked on in the order they 
    - Shows all notes associated with the establishment
    - Shows different statuses, shows breakdown of overall establishments in a
      pie chart, can select overall breakdown or via establishment categories
+
 2. Add new column to database showing date of last inspection and figure out 
    a way to track last 10 inspections.
+
+3. For login create a class of the user that will show all the required stuff like the user privileges and area assigned
+   - This is for the location selection and zoom, whichever parish the user is assigned to, the map will centre on it 
+     by default and have a zoom level to display all the establishments in that area in the screen of the map (select 
+     screen resolution via javascript to determine zoom?)
+
+4. Figure out a way to get the assigned areas marked off (maybe new database with location data for assigned areas), 
+   figure out a way to capture all the locations within that area??? for now, it will have to be manually assigned 
+
+5. Create info window (tooltip), show last inspected, status, name of est, owner/operator, contact info, link to profile
+   page, last inspected and other useful pertinent info
    

@@ -29,41 +29,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
-        zoom: 10.5, styles: [
-  {
-    "featureType": "poi",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.government",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.medical",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.school",
-    "stylers": [
-      {
-        "visibility": "on"
-      }
-    ]
-  }
-]
-    });
+        zoom: 10.5, styles: <?php include("db_stuff/standard_map.php"); ?>
 
 
 

@@ -33,7 +33,7 @@ $profile_results = $db_conn->query($query_profile_page);
     if (mysqli_num_rows($profile_results) > 0) {
     while($row = mysqli_fetch_array($profile_results)) {
         echo "<h2>" . $row["establishment_name"] . "</h2>";
-        echo "<h2>Espiry Date: " . $row["expiry_date"] . "</h2>"; //fix date to more readable format
+        echo "<h2>Expiry Date: " . $row["expiry_date"] . "</h2>"; //fix date to more readable format
         //echo "<h2>" . $row[""] . "</h2>";
         echo "<h2>Last Inspection: " . $row["last_inspection_date"] . "</h2>";
     }

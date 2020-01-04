@@ -19,6 +19,23 @@ body {
     margin: 0 auto;
 }
 
+.info-window {
+	padding: 10px;
+}
+
+.info-window h4, p {
+	padding: 1px;
+}
+
+.info-window a {
+	color: #2E8CFF;
+	float: right;
+}
+
+.info-window a:hover {
+	color: #606060;
+}
+
 #right_div {
 	position: absolute;
 	top: 2.5%;

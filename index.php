@@ -80,7 +80,7 @@ function initMap() {
 if (mysqli_num_rows($result2) > 0) {
     while($row = mysqli_fetch_array($result2)) { 
         echo "var InfoWindowContent" . $row["registration_number"] . " = '<div class=". '"info-window"'. "><h4><strong>" . $row["establishment_name"] . "</strong></h4><p><strong>Expiry Date:</strong> " . $row["expiry_date"] . "</p><p><strong>Last Inspection:</strong> ";
-        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . "</p>';"; 
+        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . '</p><p><img src="images/icons/info_window_good.png"></p>' . "';"; 
         echo "var infowindow" . $row["registration_number"] . " = new google.maps.InfoWindow({content: InfoWindowContent" . $row["registration_number"] . " });";
 
         echo "var estMarker" . $row["registration_number"];
@@ -99,7 +99,7 @@ if (mysqli_num_rows($result2) > 0) {
 if (mysqli_num_rows($result3) > 0) {
     while($row = mysqli_fetch_array($result3)) {  
         echo "var InfoWindowContent" . $row["registration_number"] . " = '<div class=". '"info-window"'. "><h4><strong>" . $row["establishment_name"] . "</strong></h4><p><strong>Expiry Date:</strong> " . $row["expiry_date"] . "</p><p><strong>Last Inspection:</strong> ";
-        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . "</p>';"; 
+        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . '</p><p><img src="images/icons/info_window_expired.png"></p>' . "';"; 
         echo "var infowindow" . $row["registration_number"] . " = new google.maps.InfoWindow({content: InfoWindowContent" . $row["registration_number"] . " });";
 
         echo "var estMarker" . $row["registration_number"];
@@ -117,7 +117,7 @@ if (mysqli_num_rows($result3) > 0) {
 if (mysqli_num_rows($result4) > 0) {
     while($row = mysqli_fetch_array($result4)) {  
         echo "var InfoWindowContent" . $row["registration_number"] . " = '<div class=". '"info-window"'. "><h4><strong>" . $row["establishment_name"] . "</strong></h4><p><strong>Expiry Date:</strong> " . $row["expiry_date"] . "</p><p><strong>Last Inspection:</strong> ";
-        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . "</p>';"; 
+        echo $row["last_inspection_date"] . '</p><p><a href="establishment_profile.php?registration_number=' . $row["registration_number"] . '">view more</a>' . '</p><p><img src="images/icons/info_window_soon.png"></p>' . "';"; 
         echo "var infowindow" . $row["registration_number"] . " = new google.maps.InfoWindow({content: InfoWindowContent" . $row["registration_number"] . " });";
 
         echo "var estMarker" . $row["registration_number"];

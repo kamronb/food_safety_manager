@@ -2,18 +2,69 @@
 
 @media screen and (min-width: 800px) and (max-width: 1600px) {
 	body {
-		font-size: 0.75em;
+		font-size: 0.65em;
+	}
+
+	#right_div {
+		padding: 0;
+		margin: -1% 2.5% 0 0;
+
 	}
 
 	#meta_div {
 		background: #94CCED;
-		margin: 5% 0 0 0;
-		padding: 20px;
+		margin: 2.5% 0 0 0;
+		padding: 10px;
+		text-align: center;
 	}
 
+
 	#meta_div img {
-		height: 100%;
-		margin-top: -10px;
+		height: 50px;
+		width: auto;
+	}
+	
+	#right_div .left_link_nearest { 
+		height: 20px;
+		margin-top: 0;
+		padding-top: 10px;
+		background-size: 30px 30px;
+	}
+
+	#right_div .right_link_expired {
+		height: 20px;
+		margin-top: 0;
+		padding-top: 10px;
+		background-size: 30px 30px;
+	}
+	
+	#right_div .left_link_nearest h4 {
+		margin-top: 0px;
+	}
+	
+	#right_div .right_link_expired h4 {
+		margin-top: 0px;
+	}
+
+	#search_box {
+		height: 30px;
+		margin: 2.5% 0 0 0;
+		padding-top: 0;	
+	}
+
+	#search_box input {
+		background: #FFFFFF;
+		width: 87.5%;
+		border: none;
+		height: 30px;
+		font-size: 2em;
+		background: url('../images/search-back.png') no-repeat;
+		background-size: 30px 30px;
+		padding: 0 0 0 12.5%;
+	}
+
+	#db_results {
+		margin: 5% 0 0 0;	
 	}
 
 	#right_div {
@@ -22,8 +73,9 @@
 	}
 
 	#legend {
-		padding: 20px;
+		padding: 10px;
 		width: 20%;
+		font-size: 1.05em;
 	}
 
 	#legend img {
@@ -80,6 +132,7 @@
 		width: 90%;
 		padding: 5%;
 		bottom: 0;
+		visibility: hidden;
 	}
 
 

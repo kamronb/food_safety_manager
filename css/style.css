@@ -14,9 +14,44 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+body a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+body a:hover {
+	color: #FF8C00;
+	text-decoration: none;
+}
+
 #map {
     height: 100%;
     margin: 0 auto;
+}
+
+#info_holder {
+	height: 78em; 
+	width: 74%; 
+	padding: 0 0 20px 0; 
+	float:  left;
+}
+
+.inspections {
+	width: 60%;
+	padding: 10px 0 20px 10px;
+	margin: 20px 0;
+}
+
+.inspections span.stress {
+	font-weight: 700;
+}
+
+
+.inspection_details {
+	padding: 20px 0 20px 10px;
+	background: #F2F2F2;
+	margin: 25px auto;
+	width: 95%;
 }
 
 .info-window {

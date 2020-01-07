@@ -1,0 +1,5 @@
+
+<p><span class="stress">Inspection Date: </span>2019-07-22</p>
+<p><span class="stress">Inspecting Officer: </span>Kamron Bennett</p>
+<p><span class="stress">Inspection Status: </span>Unsatisfactory</p>
+<p><span class="stress">Revisit: </span>2019-07-31</p>

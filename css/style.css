@@ -42,10 +42,24 @@ body a:hover {
 	margin: 20px 0;
 }
 
-.inspections span.stress {
+span.stress {
 	font-weight: 700;
 }
 
+span.cert {
+	font-weight: 700;
+	color: #00A608;
+}
+
+span.expire30 {
+	font-weight: 700;
+	color: #DBD41C;
+}
+
+span.expired {
+	font-weight: 700;
+	color: #FF0000;
+}
 
 .inspection_details {
 	padding: 20px 0 20px 10px;

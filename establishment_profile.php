@@ -16,6 +16,9 @@ $profile_results = $db_conn->query($query_profile_page);
 
 $shop_info = mysqli_fetch_array($profile_results); // will use this array to access the establishment info since its only one establishment returned by the query
 
+$todayInt = TimeToDays(strtotime(date("Y-m-d"))); //converting today to an integer
+$EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB to integer
+
 
    
 
@@ -43,6 +46,32 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
         zoom: 10.5, styles: <?php include("db_stuff/standard_map.php"); ?>
+    
+
+
+
+           var marker = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
+            map: map,
+            <?php echo 'label: "' . substr($shop_info[2], 0, 1) . '"'; ?>,
+            title: 'Hello World!',
+            <?php echo 'position: {lat: ' . $shop_info[18] . ', lng: ' . $shop_info[19] . '},' ?>
+            icon: {
+                url: <?php if ($EstExpiry < $todayInt) {
+                echo "'images/icons/expired.png'";
+            }
+            elseif (($EstExpiry > $todayInt) && ($EstExpiry < $todayInt + 30)) {
+                echo "'images/icons/soon.png'";
+            }
+            else {
+                echo "'images/icons/good.png'";
+            }?>, // url
+                scaledSize: new google.maps.Size(70, 70), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchorPoint: new google.maps.Point(<?php echo $shop_info[18] . ', ' . $shop_info[19]?>) // anchor
+            }
+        });
+
     }
 </script>
 <script async defer
@@ -60,6 +89,24 @@ function initMap() {
         </div>
         <div class="inspection_details">
             <h3>Inspection 2</h3>
+                <?php 
+                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
+                ?>
+        </div>
+        <div class="inspection_details">
+            <h3>Inspection 3</h3>
+                <?php 
+                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
+                ?>
+        </div>
+        <div class="inspection_details">
+            <h3>Inspection 4</h3>
+                <?php 
+                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
+                ?>
+        </div>
+        <div class="inspection_details">
+            <h3>Inspection 5</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
@@ -116,20 +163,32 @@ function initMap() {
             <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
             <h2>Establishment Details</h2>
             <p><strong>Establishment Name: </strong><?php echo $shop_info[1]; ?></p>
+            <p><strong>Establishment Category: </strong><?php echo $shop_info[2]; ?></p>
             <p><strong>Operator Name: </strong><?php echo $shop_info[6] . " " . $shop_info[7]; ?></p>
-            <p><strong>Certification Status: </strong>
+            <p><strong>Certification Status: </strong><?php 
+            if ($EstExpiry < $todayInt) {
+                echo '<span class="expired">Expired</span>';
+            }
+            elseif (($EstExpiry > $todayInt) && ($EstExpiry < $todayInt + 30)) {
+                echo '<span class="expire30">Expires within 30 Days</span>';
+            }
+            else {
+                echo '<span class="cert">Certified</span>';
+            }
+            ?></p>
             <p><strong>Expiry Date: </strong><?php echo $shop_info[13]; ?></p>
-            <p>&nbsp;</p>
-            <h2>Status Information</h2>
             <p><strong>Last Inspection: </strong><?php echo $shop_info[14]; ?></p> 
             <p><strong>Status Last Inspection: </strong></p> 
+            <p>&nbsp;</p>
+            <h2>Other Information</h2>
+            <p><strong>Address: </strong><?php echo $shop_info[3] . ", " . $shop_info[4]; ?></p>
+            <p><strong>Contact Number: </strong><?php echo $shop_info[8]; ?></p> 
+            <p><strong>Email Address: </strong><?php echo $shop_info[10]; ?></p>
             <p class="space_para">&nbsp;</p>
             <p class="view_more"><a href="#">update details</a></p>
             <p class="space_para">&nbsp;</p>
           </div>      
 </div>
-
-
 
 
 

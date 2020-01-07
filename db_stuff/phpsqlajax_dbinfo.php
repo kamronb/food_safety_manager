@@ -62,4 +62,13 @@ $result3 = $db_conn->query($query_expired);
 $query_good = "SELECT * FROM `$db_name`.`test_establishments` WHERE expiry_date > NOW() AND expiry_date < NOW() + INTERVAL 30 DAY";
 $result4 = $db_conn->query($query_good);
 
+
+//function to convert the time in PHP to days
+
+function TimeToDays($num) {
+	$dateVal = $num/86400;
+
+return $dateVal;
+}
+
 ?>

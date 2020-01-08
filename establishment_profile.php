@@ -29,7 +29,7 @@ $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB t
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/responsive_style.css" media="screen" />
-    <title><?php ?> Profile</title>
+    <title><?php echo $shop_info[1]; ?> Establishment Profile</title>
 </head>
 <body>
 <div id ="info_holder">
@@ -40,7 +40,7 @@ $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB t
 function initMap() {    
     
     var centerMap = { //where to centre map must change dependent on assigned area of officer
-        lat: 18.205253, lng: -77.361282 //will get from the database
+        lat: <?php echo $shop_info[18]; ?> , lng: <?php echo $shop_info[19]; ?> //will get from the database
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -66,7 +66,7 @@ function initMap() {
             else {
                 echo "'images/icons/good.png'";
             }?>, // url
-                scaledSize: new google.maps.Size(70, 70), // scaled size
+                scaledSize: new google.maps.Size(50, 50), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchorPoint: new google.maps.Point(<?php echo $shop_info[18] . ', ' . $shop_info[19]?>) // anchor
             }

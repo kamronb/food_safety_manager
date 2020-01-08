@@ -56,7 +56,7 @@ if (mysqli_num_rows($result2) > 0) {
         echo $row["establishment_location_lat"] . ", lng:" . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP, map: map, ";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "', title: '" . $row["establishment_name"];
-        echo "', icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0),";
+        echo "', icon: {url:'images/icons/good.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0),";
         echo " anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . ", " . $row["establishment_location_lon"] . ")}});";
         echo "estMarker" . $row["registration_number"] . ".addListener('click', function() {infowindow" . $row["registration_number"] . ".open(map, estMarker" . $row["registration_number"] . " )});";
     }
@@ -77,7 +77,7 @@ if (mysqli_num_rows($result3) > 0) {
         echo $row["establishment_location_lat"] . ", lng:" . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP, map: map, ";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "', title: '" . $row["establishment_name"];
-        echo "', icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0),";
+        echo "', icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0),";
         echo " anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . ", " . $row["establishment_location_lon"] . ")}});";
         echo "estMarker" . $row["registration_number"] . ".addListener('click', function() {infowindow" . $row["registration_number"] . ".open(map, estMarker" . $row["registration_number"] . " )});";
     }
@@ -97,7 +97,7 @@ if (mysqli_num_rows($result4) > 0) {
         echo $row["establishment_location_lat"] . ", lng:" . $row["establishment_location_lon"] . "},";
         echo "animation: google.maps.Animation.DROP, map: map, ";
         echo "label: '" . substr($row["establishment_category"], 0, 1) . "', title: '" . $row["establishment_name"];
-        echo "', icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0),";
+        echo "', icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0),";
         echo " anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . ", " . $row["establishment_location_lon"] . ")}});";
         echo "estMarker" . $row["registration_number"] . ".addListener('click', function() {infowindow" . $row["registration_number"] . ".open(map, estMarker" . $row["registration_number"] . " )});";
     }
@@ -189,7 +189,7 @@ if (mysqli_num_rows($result4) > 0) {
                     /*working out the percentage and rounding to two decimal places will fix to work with variables and functions in the future*/ 
 
                     echo $percentage;
-                    echo '<div id="percent_box_base"><div id="percent_sat" style="width: ' . $percentage . '%; background: '; 
+                    echo '<div id="percent_box_base"><div id="percent_sat" style="width: ' . $percentage . '%; background: '; // make it animate
                     if ($percentage >= 80) {
                         echo "#00AF11";
                     }

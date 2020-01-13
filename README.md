@@ -18,7 +18,7 @@ Grades IV and V assigned to Parish - can add and remove users in assigned areas 
 
 Regional FSO and REHO All Pivileges of previous officers in addition to all the activities in the region assigned - can add and remove users in assigned areas alone
 
-EHU Food Safety Director - All Privileges as previous but has Super User Privileges and Islandwide Access - can add and remove users in assigned areas alone
+EHU Food Safety Director - All Privileges as previous but has Super User Privileges and Islandwide Access - can add and remove any user has access to all features on an islandwide level.
 
 Reports Printed
 

@@ -125,7 +125,7 @@ span.expired {
 	right: 0;
 	height: 60px;
 	background: url('../images/expired.png') no-repeat #3C97D3;
-	text-align: center;
+	text-align: left;
 	color: #FFFFFF;
 	width: 47.5%;
 }
@@ -138,6 +138,25 @@ span.expired {
 	background: #94CCED;
 	margin: 5% 0 0 0;
 	padding: 0;
+}
+
+#user-info-box {
+	color: #FFFFFF;
+	text-align: left;
+	width: 99%; margin: 0 auto;
+
+}
+
+#user-info-box h3 {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	margin: 10px 0 0 0;
+}
+
+#user-info-box a {
+	padding: 0 10px;
+	margin: 10px 10px;
 }
 
 #meta_div img {

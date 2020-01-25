@@ -2,8 +2,9 @@
 This is where I will list all of the features to be worked on in the order they are to be done
 #############################################################################################################################
 1. Work on page that shows the Establishment Profile
-   - Shows the establishment alone on a map
+   - Shows the establishment alone on a map - DONE
    - Shows the Info Associated with it 
+   - Do a page for each User_Profile and Update_Details Links
    - Allows user to edit info
    - Shows inspections over last year
    - Shows all notes associated with the establishment

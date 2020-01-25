@@ -155,6 +155,13 @@ if (mysqli_num_rows($result4) > 0) {
     <div id="meta_div">
         <img src="images/logo.png" alt="Food Safety Manager
         ">
+        <div id="user-info-box"> <!-- this is a summary of the current login, shows features and all stuff associated with it -->
+            <p><strong>User:</strong></p>
+            <p><strong>Region:</strong></p>
+            <p><strong>Parish:</strong></p>
+            <p><strong>Health District:</strong></p>
+            <h3><a href="user_profile.php">Profile</a><a href="#">Tools</a><a href="#">Preferences</a></h3>
+       </div>
     </div>
 
     <div id="search_box">
@@ -167,15 +174,6 @@ if (mysqli_num_rows($result4) > 0) {
           <!-- 
             All this will be filled in Dynamically, both from Database and User Privileges (in Database) and other Stuff Associated with the user login start HERE:
           -->
-          <div class="est_name">
-            <!-- this is a summary of the current login, shows features and all stuff associated with it -->
-            <h3>Hello: Kamron Bennett</h3>
-            <p><strong>Health District: </strong>Falmouth</p>
-            <p><strong>Parish: </strong>Trelawny</p>
-            <p class="space_para">&nbsp;</p>
-            <p class="view_more"><a href="#">user profile</a></p>
-            <p class="space_para">&nbsp;</p>
-         </div>
          <div class="est_name">
             <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
             <h2>Overal Status</h2>

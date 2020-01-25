@@ -15,16 +15,16 @@
 // $db_name = 'xK0gfAVByD';
 
 //freehostia Server Insfo
-$db_host = "mysql.freehostia.com";
-$db_user = "kamben89_food";
-$db_pass = "ELALIACH1984";
-$db_name = "kamben89_food";
+// $db_host = "mysql.freehostia.com";
+// $db_user = "kamben89_food";
+// $db_pass = "ELALIACH1984";
+// $db_name = "kamben89_food";
 
 // Local Host Server info
-// $db_host = "localhost";
-// $db_user = "root";
-// $db_pass = "ELALIACH";
-// $db_name = 'food_safety_inspector';
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "ELALIACH";
+$db_name = 'food_safety_inspector';
 
 
 $db_query = "SELECT * FROM `test_establishments` LIMIT 10";

@@ -45,7 +45,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
-        zoom: 10.5, styles: <?php include("db_stuff/standard_map.php"); ?>
+        zoom: 14, styles: <?php include("db_stuff/standard_map.php"); ?>
     
 
 
@@ -81,35 +81,46 @@ function initMap() {
 
 <div class="inspections">   
     <h2>Last Inspections:</h2>
+    <input type="submit" name="add_inspection" value="Add New Inspection">
         <div class="inspection_details">
             <h3>Inspection 1</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
+                <input type="submit" name="" value="View">
+                <input type="submit" name="" value="Edit">
         </div>
         <div class="inspection_details">
             <h3>Inspection 2</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
+                <input type="submit" name="" value="View">
+                <input type="submit" name="" value="Edit">
         </div>
         <div class="inspection_details">
             <h3>Inspection 3</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
+                <input type="submit" name="" value="View">
+                <input type="submit" name="" value="Edit">
         </div>
         <div class="inspection_details">
             <h3>Inspection 4</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
+                <input type="submit" name="" value="View">
+                <input type="submit" name="" value="Edit">
         </div>
         <div class="inspection_details">
             <h3>Inspection 5</h3>
                 <?php 
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
+                <input type="submit" name="" value="View">
+                <input type="submit" name="" value="Edit">
         </div>
 </div>
 
@@ -138,6 +149,13 @@ function initMap() {
     <div id="meta_div">
         <img src="images/logo.png" alt="Food Safety Manager
         ">
+        <div id="user-info-box"> <!-- this is a summary of the current login, shows features and all stuff associated with it -->
+            <p><strong>User:</strong></p>
+            <p><strong>Region:</strong></p>
+            <p><strong>Parish:</strong></p>
+            <p><strong>Health District:</strong></p>
+            <h3><a href="user_profile.php">Profile</a><a href="#">Tools</a><a href="#">Preferences</a></h3>
+       </div>
     </div>
 
     <div id="search_box">
@@ -150,15 +168,7 @@ function initMap() {
           <!-- 
             All this will be filled in Dynamically, both from Database and User Privileges (in Database) and other Stuff Associated with the user login start HERE:
           -->
-          <div class="est_name">
-            <!-- this is a summary of the current login, shows features and all stuff associated with it -->
-            <h3>Hello: Kamron Bennett</h3>
-            <p><strong>Health District: </strong>Falmouth</p>
-            <p><strong>Parish: </strong>Trelawny</p>
-            <p class="space_para">&nbsp;</p>
-            <p class="view_more"><a href="#">user profile</a></p>
-            <p class="space_para">&nbsp;</p>
-         </div>
+       
          <div class="est_name">
             <!-- Sort of pretty up the stuff below to work with functions and variables, remove them to the included file to just display the information -->
             <h2>Establishment Details</h2>
@@ -185,7 +195,7 @@ function initMap() {
             <p><strong>Contact Number: </strong><?php echo $shop_info[8]; ?></p> 
             <p><strong>Email Address: </strong><?php echo $shop_info[10]; ?></p>
             <p class="space_para">&nbsp;</p>
-            <p class="view_more"><a href="#">update details</a></p>
+            <p class="view_more"><a href="update_details.php">more details</a></p>
             <p class="space_para">&nbsp;</p>
           </div>      
 </div>

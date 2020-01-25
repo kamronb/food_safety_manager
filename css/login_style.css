@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:400,700|Roboto:400,700&display=swap');
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(../images/login_screen.jpg) center center fixed #FFFFFF;
+	background-size: cover;
+	height: 100%;
+	font-family: 'Raleway', sans-serif;
+}
+
+body a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+body a:hover {
+	color: #4BD284;
+}
+
+#holder {
+	width: 75%;
+	margin: 0 auto;
+	padding: 10% 0;
+}
+
+
+#holder img {
+	width: 50%;
+	display: inline;
+	padding-top: 10%;
+}
+
+#holder form {
+	display: inline;
+	float: right;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5);
+	padding: 7.5em 2.5em;
+}
+
+#holder form p {
+	display: inline;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#holder input.username {
+	display: block;
+	border: 1px solid #EFCE4C;
+	margin: 0 0 10px 0;
+	padding: 0 0 0 5px;
+	background: none;
+	height: 30px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+#holder input.password {
+	display: block;
+	border: 1px solid #EFCE4C;
+	margin: 10px 0;
+	padding: 0 0 0 5px;
+	background: none;
+	height: 30px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+#holder input.submit {
+	background: #EFCE4C;
+	border: 1px solid #EFCE4C;
+	width: 100%;
+	height: 35px;
+	color: #4BD284;
+	text-transform: uppercase;
+	padding: 5px;
+}

@@ -13,7 +13,7 @@
 			<input placeholder="password" class="password" type="password" name="password">
 			<input class="submit" type="submit" value="connect" name="">
 			<p><a href="#">reset password</a></p>
-			<p style="float: right; padding-top: 5px;"><a href="#">about</a></p>
+			<p style="float: right; padding-top: 5px;"><a href="about.php">about</a></p>
 		</form>
 	</div>
 

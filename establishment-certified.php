@@ -63,45 +63,6 @@ if (mysqli_num_rows($result2) > 0) {
 }
 
 
-//displaying those that are expired
-if (mysqli_num_rows($result3) > 0) {
-    while($row = mysqli_fetch_array($result3)) {  
-        echo "var InfoWindowContent" . $row["registration_number"] . " = '<div class=". '"info-window"'. "><h3><strong>";
-        echo $row["establishment_name"] . "</strong></h3><p><strong>Expiry Date:</strong> " . $row["expiry_date"] . "</p>";
-        echo "<p><strong>Operator: </strong>". $row["operator_first_name"] . " " .$row["operator_last_name"];
-        echo "<p><strong>Category:</strong> " . $row["establishment_category"] . "</p><p><strong>Last Inspection:</strong> ";
-        echo $row["last_inspection_date"] . '</p><p><a href="establishment-profile.php?registration_number=' . $row["registration_number"] . '">view more</a>';
-        echo '</p><p><img title="Expired" alt="Expired" src="images/icons/info_window_expired.png"></p>' . "';"; 
-        echo "var infowindow" . $row["registration_number"] . " = new google.maps.InfoWindow({content: InfoWindowContent" . $row["registration_number"] . " });";
-        echo "var estMarker" . $row["registration_number"]. " = new google.maps.Marker({ position: {lat: "; 
-        echo $row["establishment_location_lat"] . ", lng:" . $row["establishment_location_lon"] . "},";
-        echo "animation: google.maps.Animation.DROP, map: map, ";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "', title: '" . $row["establishment_name"];
-        echo "', icon: {url:'images/icons/expired.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0),";
-        echo " anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . ", " . $row["establishment_location_lon"] . ")}});";
-        echo "estMarker" . $row["registration_number"] . ".addListener('click', function() {infowindow" . $row["registration_number"] . ".open(map, estMarker" . $row["registration_number"] . " )});";
-    }
-}
-
-//displaying those that will expire within 30 days
-if (mysqli_num_rows($result4) > 0) {
-    while($row = mysqli_fetch_array($result4)) {  
-        echo "var InfoWindowContent" . $row["registration_number"] . " = '<div class=". '"info-window"'. "><h3><strong>";
-        echo $row["establishment_name"] . "</strong></h3><p><strong>Expiry Date:</strong> " . $row["expiry_date"] . "</p>";
-        echo "<p><strong>Operator: </strong>". $row["operator_first_name"] . " " .$row["operator_last_name"];
-        echo "<p><strong>Category:</strong> " . $row["establishment_category"] . "</p><p><strong>Last Inspection:</strong> ";
-        echo $row["last_inspection_date"] . '</p><p><a href="establishment-profile.php?registration_number=' . $row["registration_number"] . '">view more</a>';
-        echo '</p><p><img title="Expired within 30 Days" alt="Expired within 30 Days" src="images/icons/info_window_soon.png"></p>' . "';"; 
-        echo "var infowindow" . $row["registration_number"] . " = new google.maps.InfoWindow({content: InfoWindowContent" . $row["registration_number"] . " });";
-        echo "var estMarker" . $row["registration_number"]. " = new google.maps.Marker({ position: {lat: "; 
-        echo $row["establishment_location_lat"] . ", lng:" . $row["establishment_location_lon"] . "},";
-        echo "animation: google.maps.Animation.DROP, map: map, ";
-        echo "label: '" . substr($row["establishment_category"], 0, 1) . "', title: '" . $row["establishment_name"];
-        echo "', icon: {url:'images/icons/soon.png', scaledSize: new google.maps.Size(50, 50), origin: new google.maps.Point(0, 0),";
-        echo " anchorPoint: new google.maps.Point(" . $row["establishment_location_lat"] . ", " . $row["establishment_location_lon"] . ")}});";
-        echo "estMarker" . $row["registration_number"] . ".addListener('click', function() {infowindow" . $row["registration_number"] . ".open(map, estMarker" . $row["registration_number"] . " )});";
-    }
-}
 ?>
 
 

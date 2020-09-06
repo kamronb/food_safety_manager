@@ -66,7 +66,7 @@ Below are the planned additions and updates to be made to the project in the per
 
 9. Strip all special characters, slashes and spaces and convert them to ASCII notation where necessary to not throw off the Javascript code (implement in PHP when that is set up)
 
-10. Add Styles for the maps, that have different themes, user can select them.
+10. Add Styles for the maps, that have different themes, user can select them. - PARTIALLY DONE!!!
 
 
 ## Medium-term Goals

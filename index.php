@@ -1,5 +1,7 @@
 <!DOCTYPE html >
 <?php
+// if not logged in redirect to login.php before
+// loading anything
 require("db_stuff/phpsqlajax_dbinfo.php");
 ?>
 

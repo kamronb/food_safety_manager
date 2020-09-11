@@ -56,7 +56,7 @@ Below are the planned additions and updates to be made to the project in the per
 
 4. Add pop-ups that display establishment info upon hover over the icons
 
-5. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database (map centres at the centre of the location like this example: https://stackoverflow.com/questions/34057920/google-maps-marker-positioning-with-custom-icon)
+5. Add link in pop-up (tooltip) that will link to establishment page where edits can be made to info in the Database (map centres at the centre of the location like this example: https://stackoverflow.com/questions/34057920/google-maps-marker-positioning-with-custom-icon) - DONE!!!
 
 6. Remove extrenuous Google labels and stuff from Map
 

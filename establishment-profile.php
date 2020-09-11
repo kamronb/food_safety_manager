@@ -30,6 +30,36 @@ $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB t
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/responsive_style.css" media="screen" />
     <title><?php echo $shop_info[1]; ?> Establishment Profile</title>
+
+
+
+
+<style type="text/css">
+    #inspection-info {
+        position: relative; 
+        top: 10px; 
+        left: 0; 
+        height: 20%; 
+        border: 1px solid black;
+        display: none;
+    }
+    #inspection-info p {
+        padding: 15px 0 0 0;
+    }
+
+    #inspection-info .inspection-info-holder {
+        background: #FFFFFF; 
+        padding: 10px;
+    }
+
+
+
+</style>
+
+
+
+
+
 </head>
 <body>
 <div id ="info_holder">
@@ -84,43 +114,52 @@ function initMap() {
     <input type="submit" name="add_inspection" value="Add New Inspection">
         <div class="inspection_details">
             <h3>Inspection 1</h3>
-                <?php 
+                <?php // trying to include files of inspection saved as file onserver
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
-                <input type="submit" name="" value="View">
+                <button onclick="show_info()">Show Inspection</button>
                 <input type="submit" name="" value="Edit">
+
+
+                <div id="inspection-info">
+                    <div class="inspection-info-holder">
+                        <h2>Info of Last Inspection</h2>
+                        <h4><strong>Inspection Date:</strong></h4>
+                        <h4><strong>Inspecting Officer:</strong></h4>
+                        <h4><strong>Inspection Status:</strong></h4>
+                        
+
+                        <p>This is where the inspection information will go should you want to see the information. Application 
+                        will typically show the last 5 to 10 inspections, the others will be archived and accessible by other means 
+                    to be developed afterwards.</p>
+
+                    <p>Only users with certain privileges will have the ability to edit this information, regular users will have the ability to only add an 
+                    inspection and update their last inspections,form/receipt will be presented as a proof of inspection, each inspection can be signed off on
+                    by the coordinator of the programme or supervisor or Food Safety Officer, whichever is applicable</p>
+
+                    <p>This will programmatically get the info from where it is stored, whether in the DB or from the files stored on the server
+                    whichever method is used to store the inspection info and will display it here.</p>
+                    </div>
+                </div>
         </div>
-        <div class="inspection_details">
-            <h3>Inspection 2</h3>
-                <?php 
-                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
-                ?>
-                <input type="submit" name="" value="View">
-                <input type="submit" name="" value="Edit">
-        </div>
-        <div class="inspection_details">
-            <h3>Inspection 3</h3>
-                <?php 
-                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
-                ?>
-                <input type="submit" name="" value="View">
-                <input type="submit" name="" value="Edit">
-        </div>
-        <div class="inspection_details">
-            <h3>Inspection 4</h3>
-                <?php 
-                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
-                ?>
-                <input type="submit" name="" value="View">
-                <input type="submit" name="" value="Edit">
-        </div>
-        <div class="inspection_details">
-            <h3>Inspection 5</h3>
-                <?php 
-                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
-                ?>
-                <input type="submit" name="" value="View">
-                <input type="submit" name="" value="Edit">
+               
+
+
+
+
+                <script type="text/javascript">
+                    function show_info() {
+                        var x = document.getElementById("inspection-info");
+                        if (x.style.display === "block") {
+                            x.style.display = "none";
+                        }
+                        else {
+                            x.style.display = "block";
+                        }
+                    };
+                </script>
+
+
         </div>
 </div>
 

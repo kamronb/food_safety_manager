@@ -25,13 +25,17 @@ require("db_stuff/phpsqlajax_dbinfo.php");
 <script>
 function initMap() {    
     
+    var localeCenter = { // this will be taked from the database or officer assignment and placed here
+        lat: 18.456590, lng: -77.601369
+    };
+
     var centerMap = { //where to centre map must change dependent on assigned area of officer
         lat: 18.205253, lng: -77.361282 //will get from the database
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: centerMap, //hope to change dependednt on assigned area
-        zoom: 10.5, styles: <?php include("db_stuff/standard_map.php"); ?>
+        center: localeCenter, //hope to change dependednt on assigned area
+        zoom: 13, styles: <?php include("db_stuff/standard_map.php"); ?>
 
 
 

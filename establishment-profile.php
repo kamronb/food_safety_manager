@@ -75,7 +75,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
-        zoom: 14, styles: <?php include("db_stuff/standard_map.php"); ?>
+        zoom: 18, styles: <?php include("db_stuff/standard_map.php"); ?>
     
 
 
@@ -110,14 +110,15 @@ function initMap() {
 
 
 <div class="inspections">   
+    <button>Add Inspection</button> <!--Add info as file to the server, will save the last 10 as text file-->
     <h2>Last Inspections:</h2>
-    <input type="submit" name="add_inspection" value="Add New Inspection">
         <div class="inspection_details">
             <h3>Inspection 1</h3>
-                <?php // trying to include files of inspection saved as file onserver
+                <?php // trying to include files of inspection saved as file on server
+                //it seems I added info from file
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
-                <button onclick="show_info()">Show Inspection</button>
+                <button onclick="show_info()">Show/Hide Inspection</button>
                 <input type="submit" name="" value="Edit">
 
 
@@ -148,7 +149,7 @@ function initMap() {
 
 
                 <script type="text/javascript">
-                    function show_info() {
+                    function show_info() { //Also update this script to change the text on the button
                         var x = document.getElementById("inspection-info");
                         if (x.style.display === "block") {
                             x.style.display = "none";

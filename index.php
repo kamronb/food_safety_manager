@@ -198,7 +198,7 @@ if (mysqli_num_rows($result4) > 0) {
                     fix to work with variables and functions in the future*/ 
 
                     echo $percentage;
-                    echo '<div id="percent_box_base"><div id="percent_sat" style="width: ' . $percentage . '%; background: '; // make it animate
+                    echo '<div id="percent_box_base"><div id="percent_sat" style="width: ' . $percentage . '%; background: '; // make it animate to show it growing with css
                     if ($percentage >= 80) {
                         echo "#00AF11";
                     }

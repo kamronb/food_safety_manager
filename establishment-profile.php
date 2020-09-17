@@ -118,13 +118,13 @@ function initMap() {
                 //it seems I added info from file
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
                 ?>
-                <button onclick="show_info()">Show/Hide Inspection</button>
+                <button onclick="show_info()">Show/Hide Details</button>
                 <input type="submit" name="" value="Edit">
 
 
                 <div id="inspection-info">
                     <div class="inspection-info-holder">
-                        <h2>Info of Last Inspection</h2>
+                        <h2>Details of Last Inspection</h2>
                         <h4><strong>Inspection Date:</strong></h4>
                         <h4><strong>Inspecting Officer:</strong></h4>
                         <h4><strong>Inspection Status:</strong></h4>

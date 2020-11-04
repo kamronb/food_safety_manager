@@ -52,6 +52,19 @@ $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB t
         padding: 10px;
     }
 
+    #add_inspection {
+        display: none;
+        position: fixed; 
+        top: 0; 
+        left: 12.5%; 
+        margin-top: 5%;
+        height: 70%; 
+        width: 75%; 
+        z-index: 100; 
+        background: #000000; 
+        padding: 30px; 
+        font-size: 2em
+    }
 
 
 </style>
@@ -73,13 +86,16 @@ function initMap() {
         lat: <?php echo $shop_info[18]; ?> , lng: <?php echo $shop_info[19]; ?> //will get from the database
     };
 
+
+    // This is the area that calls the map to the page
     var map = new google.maps.Map(document.getElementById('map'), {
         center: centerMap, //hope to change dependednt on assigned area
         zoom: 18, styles: <?php include("db_stuff/standard_map.php"); ?>
     
 
 
-
+            // this is the area where the icons are displayed depending the on the 
+            //status of the establishment when pulled from the dab.
            var marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             map: map,
@@ -110,13 +126,16 @@ function initMap() {
 
 
 <div class="inspections">   
-    <button>Add Inspection</button> <!--Add info as file to the server, will save the last 10 as text file-->
+    <button onclick="pop_up()">Add Inspection</button> <!--Add info as file to the server, will save the last 10 as text file-->
     <h2>Last Inspections:</h2>
         <div class="inspection_details">
             <h3>Inspection 1</h3>
                 <?php // trying to include files of inspection saved as file on server
                 //it seems I added info from file
                     include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
+                    //establishment_info/PARISH-NAME/HEALTH-DISTRICT/EST-NAME_
+
+
                 ?>
                 <button onclick="show_info()">Show/Hide Details</button>
                 <input type="submit" name="" value="Edit">
@@ -128,6 +147,8 @@ function initMap() {
                         <h4><strong>Inspection Date:</strong></h4>
                         <h4><strong>Inspecting Officer:</strong></h4>
                         <h4><strong>Inspection Status:</strong></h4>
+
+                        <!--Pull this info from DB or FILE?-->
                         
 
                         <p>This is where the inspection information will go should you want to see the information. Application 
@@ -156,6 +177,19 @@ function initMap() {
                         }
                         else {
                             x.style.display = "block";
+                        }
+                    };
+
+
+
+                    // Script to show the pop-up for the entry of the inspection info
+                    function pop_up() {
+                        var y = document.getElementById("inspection_info");
+                        if (y.style.display === "none") {
+                            y.style.display = "block";
+                        }
+                        else {
+                            y.style.display = "none";
                         }
                     };
                 </script>
@@ -240,12 +274,14 @@ function initMap() {
           </div>      
 </div>
 
+</div>
+</div>
 
 
-
-
-
-
+<div id="add_inspection">
+    <h1 style="">Hello World</h1>
+    <p>The Div I'm Messing with</p>
+</div>
 
 
 

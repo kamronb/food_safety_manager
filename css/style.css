@@ -36,6 +36,9 @@ body a:hover {
 	float:  left;
 }
 
+#add_inspection {
+}
+
 .inspections {
 	width: 60%;
 	padding: 10px 0 20px 10px;
@@ -257,20 +260,6 @@ span.expired {
 	float: left; 
 	padding: 15px 10px 10px 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

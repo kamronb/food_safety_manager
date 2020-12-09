@@ -20,7 +20,10 @@ $todayInt = TimeToDays(strtotime(date("Y-m-d"))); //converting today to an integ
 $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB to integer
 
 
-   
+/*The info below will be taken from the user's profile upon login*/
+$ParishName = 'Trelawny';
+$HealthDistrict = 'Fal';
+$EstablishmentName = $shop_info[1];
 
 ?>
 
@@ -29,7 +32,7 @@ $EstExpiry = TimeToDays(strtotime($shop_info[13])); // Converting date from DB t
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/responsive_style.css" media="screen" />
-    <title><?php echo $shop_info[1]; ?> Establishment Profile</title>
+    <title><?php echo $EstablishmentName; ?> Establishment Profile</title>
 
 
 
@@ -130,37 +133,41 @@ function initMap() {
     <h2>Last Inspections:</h2>
         <div class="inspection_details">
             <h3>Inspection 1</h3>
-                <?php // trying to include files of inspection saved as file on server
-                //it seems I added info from file
-                    include"establishment_info/Trelawny/Fal/PerthTownJuniorHigh_34.txt"
-                    //establishment_info/PARISH-NAME/HEALTH-DISTRICT/EST-NAME_
-
-
-                ?>
                 <button onclick="show_info()">Show/Hide Details</button>
                 <input type="submit" name="" value="Edit">
 
 
                 <div id="inspection-info">
                     <div class="inspection-info-holder">
-                        <h2>Details of Last Inspection</h2>
-                        <h4><strong>Inspection Date:</strong></h4>
-                        <h4><strong>Inspecting Officer:</strong></h4>
-                        <h4><strong>Inspection Status:</strong></h4>
+                        <!--Pull this info from DB and/or FILE?-->
+                        <?php // trying to include files of inspection saved as file on server
+                //it seems I added info from filee variables will be added from the logged-in
+                //user's profile using either fopen() or inclde().
+                /*
+                    establishment_info - folder holding establishment info
+                    $ParishName - name of parish
+                    $HealthDistrict - Health District/Zone name
+                    $EstName - name of establishment will be a folder and most recent 
+                    5 to 10 files will be opened (rest will be archived)
+                */
 
-                        <!--Pull this info from DB or FILE?-->
-                        
+                    $dir = 'establishment_info/' . $ParishName . '/' . $HealthDistrict . '/' . str_replace(' ', '', $EstablishmentName); // the 
+                    $file = '/01_01_2020.txt';
 
-                        <p>This is where the inspection information will go should you want to see the information. Application 
-                        will typically show the last 5 to 10 inspections, the others will be archived and accessible by other means 
-                    to be developed afterwards.</p>
+                    include $dir . $file; //establishment_info/PARISH-NAME/HEALTH-DISTRICT/EST-NAME_
+                    //Now, we going to search this directory for all files and display top 5, the last part of the file will be replaced by the file name afte via a loop
 
-                    <p>Only users with certain privileges will have the ability to edit this information, regular users will have the ability to only add an 
-                    inspection and update their last inspections,form/receipt will be presented as a proof of inspection, each inspection can be signed off on
-                    by the coordinator of the programme or supervisor or Food Safety Officer, whichever is applicable</p>
+                    if ($dir_list = opendir($dir)) {
+                        while (($filename = readdir($dir_list)) != false){
+                            echo "<p>" . $filename . "</p>";                            
+                        }
+                        closedir($dir_list);
+                    }
 
-                    <p>This will programmatically get the info from where it is stored, whether in the DB or from the files stored on the server
-                    whichever method is used to store the inspection info and will display it here.</p>
+
+                ?>
+
+                       INFO FROM DB/FILE ABOUT INSPECTIONS INFO ENTERED TWEAK IT UP NOW!!!!
                     </div>
                 </div>
         </div>
@@ -170,6 +177,7 @@ function initMap() {
 
 
                 <script type="text/javascript">
+                    // This script shows the info having the last inspection info 
                     function show_info() { //Also update this script to change the text on the button
                         var x = document.getElementById("inspection-info");
                         if (x.style.display === "block") {

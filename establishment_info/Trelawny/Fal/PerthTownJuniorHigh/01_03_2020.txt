@@ -3,4 +3,8 @@
 <p><span class="stress">Inspecting Officer: </span>Kamron Bennett</p>
 <p><span class="stress">Inspection Status: </span>Unsatisfactory</p>
 <p><span class="stress">Revisit: </span>2019-07-31</p>
-<p
+<p>HELLO WORLD! This is File 3</p>
+
+<p>Comments</p>
+This is where the comments will be placed and so forth, I will need to start 
+doing searches in the file to edit and update and so forth</p>

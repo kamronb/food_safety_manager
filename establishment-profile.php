@@ -138,7 +138,6 @@ function initMap() {
 
 
                 <div id="inspection-info">
-                    <div class="inspection-info-holder">
                         <!--Pull this info from DB and/or FILE?-->
                         <?php // trying to include files of inspection saved as file on server
                 //it seems I added info from filee variables will be added from the logged-in
@@ -154,21 +153,20 @@ function initMap() {
                     $dir = 'establishment_info/' . $ParishName . '/' . $HealthDistrict . '/' . str_replace(' ', '', $EstablishmentName); // the 
                     $file = '/01_01_2020.txt';
 
-                    include $dir . $file; //establishment_info/PARISH-NAME/HEALTH-DISTRICT/EST-NAME_
+                    //include $dir . $file; //establishment_info/PARISH-NAME/HEALTH-DISTRICT/EST-NAME_
                     //Now, we going to search this directory for all files and display top 5, the last part of the file will be replaced by the file name afte via a loop
 
                     if ($dir_list = opendir($dir)) {
                         while (($filename = readdir($dir_list)) != false){
-                            echo "<p>" . $filename . "</p>";                            
+                            echo '<div class="inspection-info-holder">';
+                            include $dir . $file;
+                            echo '</div>';                            
                         }
                         closedir($dir_list);
                     }
-
-
                 ?>
 
                        INFO FROM DB/FILE ABOUT INSPECTIONS INFO ENTERED TWEAK IT UP NOW!!!!
-                    </div>
                 </div>
         </div>
                
